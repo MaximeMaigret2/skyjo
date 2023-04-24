@@ -1,4 +1,4 @@
-package com.example.skyjo.pioche;
+package com.zenika.skyjo.domain.pioche;
 
 public enum Valeur {
     DOUZE(12),
@@ -30,5 +30,9 @@ public enum Valeur {
             }
         }
         throw new IllegalArgumentException("Les valeurs des cartes vont de \"-2\" à \"12\"");
+    }
+
+    public int getValeurNumerique(){
+        return valeurNumerique;
     }
 }
