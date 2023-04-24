@@ -1,6 +1,5 @@
-package com.example.skyjo.common;
+package com.example.skyjo.pioche;
 
-import com.example.skyjo.pioche.Carte;
 import org.springframework.stereotype.Service;
 
 import static com.example.skyjo.pioche.Carte.uneCarteDe;
