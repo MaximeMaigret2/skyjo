@@ -1,21 +1,23 @@
 package com.example.skyjo.pioche;
 
+import com.example.skyjo.common.Pile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.example.skyjo.pioche.Carte.uneCarteDe;
-import static com.example.skyjo.pioche.Valeur.valeur;
-
 @RestController
 @RequestMapping("/skyjo/pioche")
-public class PiocheController {
+public class Piocher {
+
+    @Autowired
+    private Pile pile;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Carte pioche(){
-        return uneCarteDe(valeur(12)); // mock
+        return pile.tirerProchaineCarte();
     }
 }
