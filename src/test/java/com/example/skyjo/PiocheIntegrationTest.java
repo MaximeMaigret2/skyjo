@@ -20,7 +20,7 @@ class PiocheIntegrationTest {
 
 	@Test
 	void je_peux_piocher_une_carte() throws Exception {
-		mockMvc.perform(get("/skyjo/pioche"))
+		mockMvc.perform(get("/skyjo/piocher"))
 				.andDo(print())
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("valeur").value("DOUZE"));

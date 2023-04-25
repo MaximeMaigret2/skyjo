@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/skyjo/pioche")
+@RequestMapping("/skyjo/piocher")
 public class Piocher {
 
     @Autowired
@@ -16,7 +16,7 @@ public class Piocher {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Carte pioche(){
+    public CarteDePioche pioche(){
         return pile.tirerProchaineCarte();
     }
 }

@@ -1,14 +1,14 @@
 package com.example.skyjo.pioche;
 
-public class Carte {
+public class CarteDePioche {
 
     private final Valeur valeur;
 
-    public static Carte uneCarteDe(Valeur valeur){
-        return new Carte(valeur);
+    public static CarteDePioche uneCarteDe(Valeur valeur){
+        return new CarteDePioche(valeur);
     }
 
-    private Carte(Valeur valeur) {
+    private CarteDePioche(Valeur valeur) {
         this.valeur = valeur;
     }
 
