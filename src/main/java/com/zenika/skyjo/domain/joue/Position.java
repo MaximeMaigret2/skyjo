@@ -1,4 +1,4 @@
-package com.example.skyjo.joue;
+package com.zenika.skyjo.domain.joue;
 
 public class Position {
 

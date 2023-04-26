@@ -1,0 +1,20 @@
+version: '3.8'
+
+networks:
+  mongo-network:
+
+services:
+  mongodb:
+    image: mongo:${MONGODB_VERSION}
+    container_name: mongodb
+    restart: always
+    networks:
+      - mongo-network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root_username
+      MONGO_INITDB_ROOT_PASSWORD: root_password
+      MONGO_INITDB_DATABASE: skyjo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./src/test/resources/js/mongo-init-user.js:/docker-entrypoint-initdb.d/mongo-init-user.js:ro

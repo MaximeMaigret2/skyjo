@@ -1,4 +1,4 @@
-package com.example.skyjo.pioche;
+package com.zenika.skyjo.domain.pioche;
 
 public enum Valeur {
     DOUZE(12),

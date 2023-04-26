@@ -1,4 +1,4 @@
-package com.example.skyjo.joue;
+package com.zenika.skyjo.domain.joue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +24,12 @@ class JouerIntegrationTest {
         String positionDeLaCarteARemplacer = """
                 {
                     "colonne": 3,
-                    "ligne": 2
+                    "ligne": 2,
+                    "jou
                 }
                 """;
 
-        mockMvc.perform(put("/skyjo/jouer/remplacer")
+        mockMvc.perform(put("/partie/1/jouer/remplacer")
                 .content(positionDeLaCarteARemplacer)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
