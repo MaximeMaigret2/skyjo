@@ -1,6 +1,5 @@
 package com.zenika.skyjo.domain.pioche;
 
-import com.zenika.skyjo.application.SkyjoApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,7 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(classes = SkyjoApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
 class PiocheIntegrationTest {
 
@@ -21,11 +20,13 @@ class PiocheIntegrationTest {
 
 	@Test
 	void je_peux_piocher_une_carte() throws Exception {
+		Pioche.creerPioche();
+
 		mockMvc.perform(get("/partie/1/piocher")
 						.header("joueur", "Awa"))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("valeur").value("DOUZE"));
+				.andExpect(jsonPath("valeur").value("MOINS_DEUX"));
 	}
 
 }

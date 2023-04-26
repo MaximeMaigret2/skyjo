@@ -2,11 +2,14 @@ package com.zenika.skyjo.domain.joue;
 
 import com.zenika.skyjo.domain.common.Carte;
 import com.zenika.skyjo.domain.pioche.Pioche;
+import com.zenika.skyjo.domain.pioche.PiocheVideException;
 
 public class Plateau {
 
-    private final Carte[][] cartes;
+    private static final int LARGEUR = 4;
+    private static final int HAUTEUR = 3;
 
+    private final Carte[][] cartes;
 
     private Carte carteEnMain;
 
@@ -22,7 +25,17 @@ public class Plateau {
     }
 
     private Carte[][] initialisation(Pioche pioche) {
-        return new Carte[0][];
+        try {
+            Carte[][] cartes = new Carte[LARGEUR][HAUTEUR];// TODO
+            for (int ligne = 0; ligne < cartes.length; ligne++) {
+                for (int colonne = 0; colonne < cartes[ligne].length; colonne++) {
+                    cartes[ligne][colonne] = pioche.tirerProchaineCarte();
+                }
+            }
+            return cartes;
+        }catch (PiocheVideException e){
+            throw new TropDeJoueursException();
+        }
     }
 
     public Carte[][] getCartes() {

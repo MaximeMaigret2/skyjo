@@ -1,6 +1,5 @@
-package com.zenika.skyjo.domain.joue;
+package com.zenika.skyjo.domain.demarrer;
 
-import com.zenika.skyjo.SkyjoApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -8,33 +7,34 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(classes = SkyjoApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
-class JouerIntegrationTest {
+class DemarrerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void je_peux_remplacer_une_carte() throws Exception {
+    void je_veux_demarrer_une_nouvelle_partie()throws Exception{
 
-        String positionDeLaCarteARemplacer = """
-                {
-                    "colonne": 3,
-                    "ligne": 2
-                }
+        String joueurs = """
+                [
+                    "Maxime",
+                    "Awa"
+                ]
                 """;
 
-        mockMvc.perform(put("/partie/1/jouer/remplacer")
-                .header("joueur", "Awa")
-                .content(positionDeLaCarteARemplacer)
+        mockMvc.perform(post("/partie/demarrerUneNouvellePartie")
+                .content(joueurs)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$").value(1));
     }
 
 }

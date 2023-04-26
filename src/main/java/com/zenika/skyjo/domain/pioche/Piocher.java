@@ -9,13 +9,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/partie")
 public class Piocher {
 
-    @Autowired
-    private Pioche pioche;
-
     @GetMapping(path = "/{partieId}/piocher")
     @ResponseStatus(HttpStatus.OK)
     public Carte pioche(@PathVariable int partieId,
                         @RequestHeader String joueur){
-        return pioche.tirerProchaineCarte();
+        // Pioche pioche = BDD.recupererPartie(partieId, joueur);
+        Pioche pioche = Pioche.creerPioche(); // TODO : recupere la pioche depuis la BDD
+
+        try{
+            return pioche.tirerProchaineCarte();
+        }catch (PiocheVideException e){
+            // TODO : melanger defausse dans pioche
+            return null;
+        }
+
     }
 }

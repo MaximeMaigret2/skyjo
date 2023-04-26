@@ -6,14 +6,16 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-@Service
 public class Pioche{
 
     private final LinkedList<Carte> cartes = new LinkedList<>();
 
-    public Carte tirerProchaineCarte() {
+    public Carte tirerProchaineCarte() throws PiocheVideException {
+        if(cartes.size() == 0){
+            throw new PiocheVideException();
+        }
         Carte first = cartes.getFirst();
-        cartes.remove(first);
+        cartes.remove(first); // TODO : gérer quand pioche vide
         return first;
     }
 

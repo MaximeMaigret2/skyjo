@@ -31,4 +31,8 @@ public enum Valeur {
         }
         throw new IllegalArgumentException("Les valeurs des cartes vont de \"-2\" à \"12\"");
     }
+
+    public int getValeurNumerique(){
+        return valeurNumerique;
+    }
 }

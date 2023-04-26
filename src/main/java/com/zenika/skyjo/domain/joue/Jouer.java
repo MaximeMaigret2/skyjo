@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/partie")
 public class Jouer {
 
-    @PutMapping("/{id}/jouer/remplacer")
+    @PutMapping("/{partieId}/jouer/remplacer")
     @ResponseStatus(HttpStatus.OK)
-    public Carte[][] remplacer(@PathVariable int partie,
+    public Carte[][] remplacer(@PathVariable int partieId,
                                @RequestBody Position coup,
                                @RequestHeader String joueur){
         throw  new UnsupportedOperationException();
