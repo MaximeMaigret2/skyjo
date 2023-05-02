@@ -1,7 +1,7 @@
 package com.zenika.skyjo.interfaces;
 
-import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.domain.MancheRepository;
+import com.zenika.skyjo.interfaces.dto.MancheDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ public class ConsulterControleur {
     }
 
     @GetMapping("/{mancheId}")
-    public ResponseEntity<Manche> demarrerUneNouvellePartie(@PathVariable String mancheId) {
-        return ResponseEntity.of(mancheRepository.findById(mancheId));
+    public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@PathVariable String mancheId) {
+        return ResponseEntity.of(mancheRepository.findById(mancheId).map(MancheDto::fromDomain));
     }
 }

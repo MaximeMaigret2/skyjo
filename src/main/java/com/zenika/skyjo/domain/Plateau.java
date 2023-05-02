@@ -42,6 +42,8 @@ public class Plateau {
     }
 
     public void prendreUneCarteEnMain(@NotNull Carte carteEnMain) {
+        // Une carte en main est toujours visible
+        carteEnMain.retournerFaceVisible();
         this.carteEnMain = carteEnMain;
     }
 

@@ -55,7 +55,7 @@ public class SkyjoLogique {
         return mancheRepository.save(manche);
     }
 
-    public Manche unJoueurPioche(String mancheId, String nomJoueur) {
+    public Manche unJoueurPiochePile(String mancheId, String nomJoueur) {
         Manche manche = mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
         Carte cartePioche = manche.getPioche().tirerUneCarte();
@@ -64,4 +64,12 @@ public class SkyjoLogique {
         return mancheRepository.save(manche);
     }
 
+    public Manche unJoueurPiocheDefausse(String mancheId, String nomJoueur) {
+        Manche manche = mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
+        Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
+        Carte carteDefausse = manche.getDefausse().tirerUneCarte();
+        plateau.prendreUneCarteEnMain(carteDefausse);
+        manche.verifierEtat();
+        return mancheRepository.save(manche);
+    }
 }
