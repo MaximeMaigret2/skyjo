@@ -4,7 +4,3 @@ spring:
       database: skyjo
       username: skyjo
       password: skyjo
-
-logging:
-  level:
-    "org.springframework.data": debug
