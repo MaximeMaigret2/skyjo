@@ -38,18 +38,17 @@ class PlateauTest {
         assertThat(cartes[0][0].getValeur()).isEqualTo(Valeur.ZERO);
         assertThat(cartes[0][1].getValeur()).isEqualTo(Valeur.UN);
         assertThat(cartes[0][2].getValeur()).isEqualTo(Valeur.DEUX);
+        assertThat(cartes[0][3].getValeur()).isEqualTo(Valeur.TROIS);
 
-        assertThat(cartes[1][0].getValeur()).isEqualTo(Valeur.TROIS);
-        assertThat(cartes[1][1].getValeur()).isEqualTo(Valeur.QUATRE);
-        assertThat(cartes[1][2].getValeur()).isEqualTo(Valeur.CINQ);
+        assertThat(cartes[1][0].getValeur()).isEqualTo(Valeur.QUATRE);
+        assertThat(cartes[1][1].getValeur()).isEqualTo(Valeur.CINQ);
+        assertThat(cartes[1][2].getValeur()).isEqualTo(Valeur.SIX);
+        assertThat(cartes[1][3].getValeur()).isEqualTo(Valeur.SEPT);
 
-        assertThat(cartes[2][0].getValeur()).isEqualTo(Valeur.SIX);
-        assertThat(cartes[2][1].getValeur()).isEqualTo(Valeur.SEPT);
-        assertThat(cartes[2][2].getValeur()).isEqualTo(Valeur.HUIT);
-
-        assertThat(cartes[3][0].getValeur()).isEqualTo(Valeur.NEUF);
-        assertThat(cartes[3][1].getValeur()).isEqualTo(Valeur.DIX);
-        assertThat(cartes[3][2].getValeur()).isEqualTo(Valeur.ONZE);
+        assertThat(cartes[2][0].getValeur()).isEqualTo(Valeur.HUIT);
+        assertThat(cartes[2][1].getValeur()).isEqualTo(Valeur.NEUF);
+        assertThat(cartes[2][2].getValeur()).isEqualTo(Valeur.DIX);
+        assertThat(cartes[2][3].getValeur()).isEqualTo(Valeur.ONZE);
     }
 
 }

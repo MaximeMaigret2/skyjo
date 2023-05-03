@@ -6,6 +6,10 @@ db.createUser(
             {
                 role: "readWrite",
                 db: "skyjo"
+            },
+            {
+                role: "readWrite",
+                db: "test"
             }
         ]
     }

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public record DefausseDto(LinkedList<CarteDto> cartes) {
     public static DefausseDto fromDomain(Defausse defausse) {
-        LinkedList<CarteDto> cartes = defausse.cartes().stream().map(CarteDto::fromDomain).collect(Collectors.toCollection(LinkedList::new));
+        LinkedList<CarteDto> cartes = defausse.getCartes().stream().map(CarteDto::fromDomain).collect(Collectors.toCollection(LinkedList::new));
         return new DefausseDto(cartes);
     }
 }

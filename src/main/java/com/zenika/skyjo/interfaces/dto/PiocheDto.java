@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public record PiocheDto(LinkedList<CarteDto> cartes) {
     public static PiocheDto fromDomain(Pioche pioche) {
-        LinkedList<CarteDto> cartes = pioche.cartes().stream().map(CarteDto::fromDomain).collect(Collectors.toCollection(LinkedList::new));
+        LinkedList<CarteDto> cartes = pioche.getCartes().stream().map(CarteDto::fromDomain).collect(Collectors.toCollection(LinkedList::new));
         return new PiocheDto(cartes);
     }
 }
