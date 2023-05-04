@@ -10,7 +10,13 @@ import org.springframework.test.context.TestExecutionListener;
 import org.springframework.test.context.support.TestPropertySourceUtils;
 import org.testcontainers.containers.BindMode;
 import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.containers.startupcheck.IndefiniteWaitOneShotStartupCheckStrategy;
+import org.testcontainers.containers.startupcheck.IsRunningStartupCheckStrategy;
+import org.testcontainers.containers.startupcheck.MinimumDurationRunningStartupCheckStrategy;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
+
+import java.time.Duration;
 
 /**
  * A {@link TestExecutionListener} to launch one {@link MongoDbContainerManager} for all integration tests.
@@ -27,6 +33,7 @@ public class MongoDbContainerManager implements TestExecutionListener, Applicati
                 .withClasspathResourceMapping("js/mongo-init-user.js",
                         "/docker-entrypoint-initdb.d/mongo-init-user.js",
                         BindMode.READ_ONLY)
+                .withStartupAttempts(10)
                 // https://www.testcontainers.org/features/reuse/
                 .withReuse(true);
         // Demarrer

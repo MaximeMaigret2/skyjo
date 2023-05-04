@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public record Pioche(LinkedList<Carte> cartes) {
+
     public Carte tirerUneCarte() throws PiocheVideException {
         if (cartes.size() == 0) {
             throw new PiocheVideException();

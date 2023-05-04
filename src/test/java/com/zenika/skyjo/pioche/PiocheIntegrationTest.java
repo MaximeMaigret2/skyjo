@@ -1,28 +1,46 @@
 package com.zenika.skyjo.pioche;
 
+import com.zenika.skyjo.common.IntegrationTest;
+import com.zenika.skyjo.common.MancheBuilderTest;
+import com.zenika.skyjo.domain.Carte;
+import com.zenika.skyjo.domain.Manche;
+import com.zenika.skyjo.interfaces.repository.MancheRepository;
+import com.zenika.skyjo.domain.Valeur;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.reactive.server.WebTestClient;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+import java.util.List;
+
+@IntegrationTest
 class PiocheIntegrationTest {
 
 	@Autowired
-	private MockMvc mockMvc;
+	private WebTestClient webTestClient;
+
+	@Autowired
+	private MancheRepository mancheRepository;
 
 	@Test
-	void je_peux_piocher_une_carte() throws Exception {
-		// FIXME
-//		Pioche.construireLaPioche();
-//
-//		mockMvc.perform(get("/partie/1/piocher")
-//						.header("joueur", "Awa"))
-//				.andDo(print())
-//				.andExpect(status().isOk())
-//				.andExpect(jsonPath("valeur").value("MOINS_DEUX"));
+	void je_peux_piocher_une_carte() {
+
+		Manche manche = MancheBuilderTest.nouvelleMancheDeTest("1")
+						.pourJoueur("Awa")
+						.avecPiocheFixee(List.of(Carte.uneCarteDe(Valeur.DEUX)))
+						.avecPlateauQuelconqueCache()
+						.build();
+
+		mancheRepository.save(manche);
+
+		webTestClient.post()
+				.uri("/manches/1/piocher/pile")
+				.header("joueur", "Awa")
+				.exchange()
+				.expectStatus().isOk()
+				.expectBody()
+				.jsonPath("$.plateaux[0].joueur").isEqualTo("Awa")
+				.jsonPath("$.plateaux[0].carteEnMain.valeur").isEqualTo("DEUX")
+				.jsonPath("$.plateaux[0].carteEnMain.statut").isEqualTo("VISIBLE");
 	}
 
 }
