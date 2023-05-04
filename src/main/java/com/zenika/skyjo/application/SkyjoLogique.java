@@ -39,20 +39,32 @@ public class SkyjoLogique {
         // Formez une pioche avec l'ensemble des cartes
         Pioche pioche = Pioche.construireLaPioche();
         // Chaque joueur reçoit 12 cartes face cachée
-        List<Plateau> plateauxJoueurs = joueurs.stream()
-                .map(joueur -> Plateau.creerPlateauPour(joueur, pioche))
-                .toList();
+        List<Plateau> plateauxJoueurs = distribuerLesCartesAuxJoueurs(joueurs, pioche);
         // Révélez la première carte de la pioche, elle constitue le début de la pile de défausse
-        Carte premiereCarteDeLaDefausse = pioche.tirerUneCarte();
-        premiereCarteDeLaDefausse.retournerFaceVisible();
-        Defausse defausse = Defausse.construireLaDefausse(premiereCarteDeLaDefausse);
+        Defausse defausse = retournerPremiereCarteDeLaDefausse(pioche);
         // La manche est en cours d'initialisation, en attente
+        return initialiserLaManche(pioche, plateauxJoueurs, defausse);
+    }
+
+    private Manche initialiserLaManche(Pioche pioche, List<Plateau> plateauxJoueurs, Defausse defausse) {
         Manche manche = new Manche();
         manche.setDefausse(defausse);
         manche.setPioche(pioche);
         manche.setPlateaux(plateauxJoueurs);
         manche.verifierEtat();
         return mancheRepository.save(manche);
+    }
+
+    private Defausse retournerPremiereCarteDeLaDefausse(Pioche pioche) {
+        Carte premiereCarteDeLaDefausse = pioche.tirerUneCarte();
+        premiereCarteDeLaDefausse.retournerFaceVisible();
+        return Defausse.construireLaDefausse(premiereCarteDeLaDefausse);
+    }
+
+    private List<Plateau> distribuerLesCartesAuxJoueurs(List<String> joueurs, Pioche pioche) {
+        return joueurs.stream()
+                .map(joueur -> Plateau.creerPlateauPour(joueur, pioche))
+                .toList();
     }
 
     public Manche unJoueurPiochePile(String mancheId, String nomJoueur) {

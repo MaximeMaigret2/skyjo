@@ -5,6 +5,7 @@ import com.zenika.skyjo.domain.exceptions.DefausseVideException;
 import java.util.LinkedList;
 
 public record Defausse(LinkedList<Carte> cartes) {
+
     public Carte tirerUneCarte() throws DefausseVideException {
         if (cartes.size() == 0) {
             // Cela ne devrait pas arriver
