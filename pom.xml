@@ -19,7 +19,6 @@
         <testcontainers.version>1.18.0</testcontainers.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
         <assertj-core.version>3.24.2</assertj-core.version>
-        <mongo-java-driver.version>3.12.13</mongo-java-driver.version>
     </properties>
 
     <dependencies>
@@ -71,12 +70,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
             <!-- besoin de cette dependance pour WebTestClient -->
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>${mongo-java-driver.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

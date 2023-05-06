@@ -1,19 +1,15 @@
 package com.zenika.skyjo.pioche;
 
-import com.mongodb.DBObject;
 import com.zenika.skyjo.common.IntegrationTest;
 import com.zenika.skyjo.common.MancheBuilderTest;
-import com.zenika.skyjo.domain.*;
+import com.zenika.skyjo.domain.Carte;
+import com.zenika.skyjo.domain.Manche;
+import com.zenika.skyjo.domain.MancheRepository;
+import com.zenika.skyjo.domain.Valeur;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.test.web.servlet.MockMvc;
-import com.mongodb.util.JSON;
-import com.mongodb.BasicDBObject;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @IntegrationTest
@@ -40,7 +36,11 @@ class PiocheIntegrationTest {
 				.uri("/manches/1/piocher/pile")
 				.header("joueur", "Awa")
 				.exchange()
-				.expectStatus().isOk();
+				.expectStatus().isOk()
+				.expectBody()
+				.jsonPath("$.plateaux[0].joueur").isEqualTo("Awa")
+				.jsonPath("$.plateaux[0].carteEnMain.valeur").isEqualTo("DEUX")
+				.jsonPath("$.plateaux[0].carteEnMain.statut").isEqualTo("VISIBLE");
 	}
 
 }
