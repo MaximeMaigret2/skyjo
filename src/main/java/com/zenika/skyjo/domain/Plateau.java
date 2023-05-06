@@ -69,4 +69,11 @@ public class Plateau {
                 .flatMap(Arrays::stream)
                 .allMatch(carte -> Statut.VISIBLE.equals(carte.getStatut()));
     }
+
+    public Carte poserCarteEnMainEn(Position position) {
+        Carte carteRemplacee = cartes[position.colonne()][position.ligne()];
+        cartes[position.colonne()][position.ligne()] = carteEnMain;
+        carteEnMain = null;
+        return carteRemplacee;
+    }
 }

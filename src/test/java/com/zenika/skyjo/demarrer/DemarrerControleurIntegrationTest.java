@@ -33,7 +33,7 @@ class DemarrerControleurIntegrationTest {
     }
 
     @Test
-    void je_veux_demarrer_engager_un_joueur_dans_une_nouvelle_partie() throws Exception {
+    void je_veux_engager_un_joueur_dans_une_nouvelle_partie() {
         // FIXME
     }
 

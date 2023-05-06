@@ -16,6 +16,7 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
     private final LinkedList<Carte> cartesDefausse = new LinkedList<>();
     private String joueur;
     private final String id;
+    private Carte carteEnMain = Carte.uneCarteDe(Valeur.ZERO); // defaut
 
     public MancheBuilderTest(String id) {
         this.id = id;
@@ -27,7 +28,7 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
         return this;
     }
 
-    public MancheBuilderTest avecPlateauQuelconque(){
+    public MancheBuilderTest avecPlateauQuelconqueCache(){
         // plateau rempli de 0
         cartesPlateau.addAll(IntStream.range(0, 12)
                 .mapToObj(index ->
@@ -42,7 +43,14 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
     }
 
     public MancheBuilderTest avecDefausseFixee(List<Carte> cartes){
+        cartes.forEach(Carte::retournerFaceVisible);
         cartesPioche.addAll(cartes);
+        return this;
+    }
+
+    public MancheBuilderTest avecDefausseFixee(Carte carte) {
+        carte.retournerFaceVisible();
+        cartesPioche.add(carte);
         return this;
     }
 
@@ -53,6 +61,12 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
 
     public static MancheBuilderTest nouvelleMancheDeTest(String id){
         return new MancheBuilderTest(id);
+    }
+
+    public MancheBuilderTest avecCarteEnMain(Carte carteEnMain) {
+        carteEnMain.retournerFaceVisible();
+        this.carteEnMain = carteEnMain;
+        return this;
     }
 
     public Manche build(){
@@ -68,6 +82,7 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
         manche.setPioche(pioche);
 
         Plateau plateau = Plateau.creerPlateauPour(joueur, pioche);
+        plateau.prendreUneCarteEnMain(carteEnMain);
         manche.setPlateaux(List.of(plateau));
 
         return manche;

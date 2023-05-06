@@ -27,7 +27,7 @@ class PiocheIntegrationTest {
 		Manche manche = MancheBuilderTest.nouvelleMancheDeTest("1")
 						.pourJoueur("Awa")
 						.avecPiocheFixee(List.of(Carte.uneCarteDe(Valeur.DEUX)))
-						.avecPlateauQuelconque()
+						.avecPlateauQuelconqueCache()
 						.build();
 
 		mancheRepository.save(manche);

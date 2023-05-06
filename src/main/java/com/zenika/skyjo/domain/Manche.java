@@ -75,6 +75,10 @@ public class Manche {
         return this.etat;
     }
 
+    public void defausser(Carte carteAMettreDansLaDefausse) {
+        defausse.ajouterALaDefausse(carteAMettreDansLaDefausse);
+    }
+
     public static class MancheBuilder{
         private Pioche pioche;
         private Defausse defausse;

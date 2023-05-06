@@ -90,6 +90,15 @@ public class SkyjoLogique {
         return mancheRepository.save(manche);
     }
 
+    public Manche unJoueurJoueEn(Position position, String mancheId, String nomJoueur) {
+        Manche manche = recupererLaManche(mancheId);
+        Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
+        Carte carteAMettreDansLaDefausse = plateau.poserCarteEnMainEn(position);
+        manche.defausser(carteAMettreDansLaDefausse);
+        manche.verifierEtat();
+        return mancheRepository.save(manche);
+    }
+
     private Carte tirerUneCarteDeLaPioche(Manche manche) {
         return manche.getPioche().tirerUneCarte();
     }

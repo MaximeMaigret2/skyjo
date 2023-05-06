@@ -22,6 +22,10 @@ public record Defausse(LinkedList<Carte> cartes) {
         return defausse;
     }
 
+    public void ajouterALaDefausse(Carte carteADefausser){
+        cartes.addFirst(carteADefausser);
+    }
+
     private Defausse() {
         this(new LinkedList<>());
     }
