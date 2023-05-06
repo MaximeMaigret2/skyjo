@@ -24,12 +24,17 @@ public class SkyjoLogique {
     }
 
     public Manche engagerUnJoueurSurUneManche(String mancheId, String nomJoueur, List<Position> positions) {
-        Manche manche = mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
+        Manche manche = recupererLaManche(mancheId);
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        positions.forEach(position -> plateau.carteEnPosition(position).retournerFaceVisible());
+        retournerDeuxCartesFacesVisibles(positions, plateau);
         manche.verifierEtat();
         return mancheRepository.save(manche);
     }
+
+    private void retournerDeuxCartesFacesVisibles(List<Position> positions, Plateau plateau) {
+        positions.forEach(position -> plateau.carteEnPosition(position).retournerFaceVisible());
+    }
+
 
     public Manche preparerUneManche(@NotNull List<String> joueurs) {
         if (joueurs.size() < 2 || joueurs.size() > 8) {
@@ -47,11 +52,11 @@ public class SkyjoLogique {
     }
 
     private Manche initialiserLaManche(Pioche pioche, List<Plateau> plateauxJoueurs, Defausse defausse) {
-        Manche manche = new Manche();
-        manche.setDefausse(defausse);
-        manche.setPioche(pioche);
-        manche.setPlateaux(plateauxJoueurs);
-        manche.verifierEtat();
+        Manche manche = Manche.MancheBuilder.nouvelleManche()
+                .avecDefausse(defausse)
+                .avecPioche(pioche)
+                .avecPlateau(plateauxJoueurs)
+                .build();
         return mancheRepository.save(manche);
     }
 
@@ -68,20 +73,32 @@ public class SkyjoLogique {
     }
 
     public Manche unJoueurPiochePile(String mancheId, String nomJoueur) {
-        Manche manche = mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
+        Manche manche = recupererLaManche(mancheId);
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Carte cartePioche = manche.getPioche().tirerUneCarte();
+        Carte cartePioche = tirerUneCarteDeLaPioche(manche);
         plateau.prendreUneCarteEnMain(cartePioche);
         manche.verifierEtat();
         return mancheRepository.save(manche);
     }
 
     public Manche unJoueurPiocheDefausse(String mancheId, String nomJoueur) {
-        Manche manche = mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
+        Manche manche = recupererLaManche(mancheId);
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Carte carteDefausse = manche.getDefausse().tirerUneCarte();
+        Carte carteDefausse = tirerUneCarteDeLaDefausse(manche);
         plateau.prendreUneCarteEnMain(carteDefausse);
         manche.verifierEtat();
         return mancheRepository.save(manche);
+    }
+
+    private Carte tirerUneCarteDeLaPioche(Manche manche) {
+        return manche.getPioche().tirerUneCarte();
+    }
+
+    private Carte tirerUneCarteDeLaDefausse(Manche manche) {
+        return manche.getDefausse().tirerUneCarte();
+    }
+
+    private Manche recupererLaManche(String mancheId) {
+        return mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
     }
 }

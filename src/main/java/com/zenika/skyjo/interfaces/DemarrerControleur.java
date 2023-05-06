@@ -25,7 +25,7 @@ public class DemarrerControleur {
         this.skyjoLogique = skyjoLogique;
     }
 
-    @PostMapping
+    @PostMapping("/nouvellePartie")
     public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@Valid @RequestBody ListeDesJoueursDto listeDesJoueursDto) {
         Manche manche = skyjoLogique.preparerUneManche(listeDesJoueursDto.joueurs());
         return ResponseEntity.created(URI.create("/manches/" + manche.getId())).body(MancheDto.fromDomain(manche));

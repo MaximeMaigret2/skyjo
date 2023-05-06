@@ -74,4 +74,39 @@ public class Manche {
         }
         return this.etat;
     }
+
+    public static class MancheBuilder{
+        private Pioche pioche;
+        private Defausse defausse;
+        private List<Plateau> plateaux = new ArrayList<>();
+
+        public static MancheBuilder nouvelleManche(){
+            return new MancheBuilder();
+        }
+
+        public MancheBuilder avecPioche(Pioche pioche){
+            this.pioche = pioche;
+            return this;
+        }
+
+        public MancheBuilder avecDefausse(Defausse defausse){
+            this.defausse = defausse;
+            return this;
+        }
+
+        public MancheBuilder avecPlateau(List<Plateau> plateaux){
+            this.plateaux.addAll(plateaux);
+            return this;
+        }
+
+        public Manche build(){
+            Manche manche = new Manche();
+            manche.setDefausse(defausse);
+            manche.setPioche(pioche);
+            manche.setPlateaux(plateaux);
+            manche.verifierEtat();
+            return manche;
+        }
+
+    }
 }

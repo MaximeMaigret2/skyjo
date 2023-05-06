@@ -15,7 +15,7 @@ class DemarrerControleurIntegrationTest {
     private ScenarioTestUtils scenarioTestUtils;
 
     @Test
-    void je_veux_demarrer_une_nouvelle_partie() throws Exception {
+    void je_veux_demarrer_une_nouvelle_partie() {
         // Given 2 joueurs
         // When
         scenarioTestUtils.initialiseUnePartieAvecDesJoueurs(List.of("Awa", "Maxime"))

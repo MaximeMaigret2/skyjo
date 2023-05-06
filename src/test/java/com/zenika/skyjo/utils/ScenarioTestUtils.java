@@ -24,7 +24,7 @@ public class ScenarioTestUtils {
                 .collect(Collectors.joining("\", \"", "\"", "\"")) + "]}";
 
         return webTestClient.post()
-                .uri("/manches")
+                .uri("/manches/nouvellePartie")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(jsonJoueurs)
                 .exchange();
