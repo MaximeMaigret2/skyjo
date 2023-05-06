@@ -4,7 +4,7 @@ import com.zenika.skyjo.common.IntegrationTest;
 import com.zenika.skyjo.common.MancheBuilderTest;
 import com.zenika.skyjo.domain.Carte;
 import com.zenika.skyjo.domain.Manche;
-import com.zenika.skyjo.domain.MancheRepository;
+import com.zenika.skyjo.interfaces.repository.MancheRepository;
 import com.zenika.skyjo.domain.Valeur;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

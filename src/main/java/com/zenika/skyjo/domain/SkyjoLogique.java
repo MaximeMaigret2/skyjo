@@ -1,34 +1,29 @@
-package com.zenika.skyjo.application;
+package com.zenika.skyjo.domain;
 
-import com.zenika.skyjo.domain.Carte;
-import com.zenika.skyjo.domain.Defausse;
-import com.zenika.skyjo.domain.Manche;
-import com.zenika.skyjo.domain.MancheRepository;
-import com.zenika.skyjo.domain.Pioche;
-import com.zenika.skyjo.domain.Plateau;
-import com.zenika.skyjo.domain.Position;
-import com.zenika.skyjo.domain.exceptions.MancheInexistanteException;
 import com.zenika.skyjo.domain.exceptions.NombreDeJoueursImpossible;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class SkyjoLogique {
 
-    private final MancheRepository mancheRepository;
+    private static SkyjoLogique instance;
 
-    public SkyjoLogique(MancheRepository mancheRepository) {
-        this.mancheRepository = mancheRepository;
+    private SkyjoLogique(){
     }
 
-    public Manche engagerUnJoueurSurUneManche(String mancheId, String nomJoueur, List<Position> positions) {
-        Manche manche = recupererLaManche(mancheId);
+    public static SkyjoLogique getInstance(){
+        if(instance == null){
+            instance = new SkyjoLogique();
+        }
+        return instance;
+    }
+
+    public Manche engagerUnJoueurSurUneManche(Manche manche, String nomJoueur, List<Position> positions) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
         retournerDeuxCartesFacesVisibles(positions, plateau);
         manche.verifierEtat();
-        return mancheRepository.save(manche);
+        return manche;
     }
 
     private void retournerDeuxCartesFacesVisibles(List<Position> positions, Plateau plateau) {
@@ -52,12 +47,11 @@ public class SkyjoLogique {
     }
 
     private Manche initialiserLaManche(Pioche pioche, List<Plateau> plateauxJoueurs, Defausse defausse) {
-        Manche manche = Manche.MancheBuilder.nouvelleManche()
+        return Manche.MancheBuilder.nouvelleManche()
                 .avecDefausse(defausse)
                 .avecPioche(pioche)
                 .avecPlateau(plateauxJoueurs)
                 .build();
-        return mancheRepository.save(manche);
     }
 
     private Defausse retournerPremiereCarteDeLaDefausse(Pioche pioche) {
@@ -72,31 +66,28 @@ public class SkyjoLogique {
                 .toList();
     }
 
-    public Manche unJoueurPiochePile(String mancheId, String nomJoueur) {
-        Manche manche = recupererLaManche(mancheId);
+    public Manche unJoueurPiochePile(Manche manche, String nomJoueur) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
         Carte cartePioche = tirerUneCarteDeLaPioche(manche);
         plateau.prendreUneCarteEnMain(cartePioche);
         manche.verifierEtat();
-        return mancheRepository.save(manche);
+        return manche;
     }
 
-    public Manche unJoueurPiocheDefausse(String mancheId, String nomJoueur) {
-        Manche manche = recupererLaManche(mancheId);
+    public Manche unJoueurPiocheDefausse(Manche manche, String nomJoueur) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
         Carte carteDefausse = tirerUneCarteDeLaDefausse(manche);
         plateau.prendreUneCarteEnMain(carteDefausse);
         manche.verifierEtat();
-        return mancheRepository.save(manche);
+        return manche;
     }
 
-    public Manche unJoueurJoueEn(Position position, String mancheId, String nomJoueur) {
-        Manche manche = recupererLaManche(mancheId);
+    public Manche unJoueurJoueEn(Position position, Manche manche, String nomJoueur) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
         Carte carteAMettreDansLaDefausse = plateau.poserCarteEnMainEn(position);
         manche.defausser(carteAMettreDansLaDefausse);
         manche.verifierEtat();
-        return mancheRepository.save(manche);
+        return manche;
     }
 
     private Carte tirerUneCarteDeLaPioche(Manche manche) {
@@ -105,9 +96,5 @@ public class SkyjoLogique {
 
     private Carte tirerUneCarteDeLaDefausse(Manche manche) {
         return manche.getDefausse().tirerUneCarte();
-    }
-
-    private Manche recupererLaManche(String mancheId) {
-        return mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
     }
 }
