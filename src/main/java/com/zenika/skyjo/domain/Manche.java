@@ -78,7 +78,7 @@ public class Manche {
     public static class MancheBuilder{
         private Pioche pioche;
         private Defausse defausse;
-        private List<Plateau> plateaux = new ArrayList<>();
+        private final List<Plateau> plateaux = new ArrayList<>();
 
         public static MancheBuilder nouvelleManche(){
             return new MancheBuilder();

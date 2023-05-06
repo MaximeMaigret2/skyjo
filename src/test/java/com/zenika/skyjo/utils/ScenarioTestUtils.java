@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 @Service
 @Scope("prototype")
 public class ScenarioTestUtils {
+
     @Autowired
     private WebTestClient webTestClient;
-
 
     @NotNull
     public WebTestClient.ResponseSpec initialiseUnePartieAvecDesJoueurs(List<String> joueurs) {

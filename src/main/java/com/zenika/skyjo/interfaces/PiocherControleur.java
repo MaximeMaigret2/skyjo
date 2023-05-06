@@ -6,13 +6,7 @@ import com.zenika.skyjo.interfaces.dto.JoueurDto;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/manches")
@@ -23,16 +17,16 @@ public class PiocherControleur {
         this.skyjoLogique = skyjoLogique;
     }
 
-    @PostMapping(path = "/{mancheId}/pile")
+    @PostMapping(path = "/{mancheId}/piocher/pile")
     public ResponseEntity<MancheDto> piochePile(@PathVariable String mancheId,
-                                                @Valid @RequestBody JoueurDto joueurDto) {
+                                                @Valid @RequestHeader("joueur") JoueurDto joueurDto) {
         Manche manche = skyjoLogique.unJoueurPiochePile(mancheId, joueurDto.joueur());
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }
 
-    @PostMapping(path = "/{mancheId}/defausse")
+    @PostMapping(path = "/{mancheId}/piocher/defausse")
     public ResponseEntity<MancheDto> piocheDefausse(@PathVariable String mancheId,
-                                                    @Valid @RequestBody JoueurDto joueurDto) {
+                                                    @Valid @RequestHeader("joueur") JoueurDto joueurDto) {
         Manche manche = skyjoLogique.unJoueurPiocheDefausse(mancheId, joueurDto.joueur());
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }

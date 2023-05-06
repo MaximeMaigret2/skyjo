@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/manches")
 public class JouerControleur {
 
-    @PostMapping("/{mancheId}/remplacer")
+    @PostMapping("/{mancheId}/jouer/remplacer")
     public ResponseEntity<MancheDto> remplacerCarteEnMainSurLePlateau(@PathVariable String mancheId,
                                                                       @RequestBody Position position) {
 
         throw new NotImplementedException();
     }
 
-    @PostMapping("/{mancheId}/reveler")
+    @PostMapping("/{mancheId}/jouer/reveler")
     public ResponseEntity<MancheDto> revelerCartePlateau(@PathVariable String mancheId,
                                                          @RequestBody Position position) {
 
         throw new NotImplementedException();
     }
 
-    @PostMapping("/{mancheId}/deposer")
+    @PostMapping("/{mancheId}/jouer/deposer")
     public ResponseEntity<MancheDto> deposerSurLaDefausse(@PathVariable String mancheId,
                                                           @RequestBody Position coup) {
 

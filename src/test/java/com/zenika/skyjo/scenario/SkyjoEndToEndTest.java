@@ -26,87 +26,90 @@ class SkyjoEndToEndTest {
     @Autowired
     private WebTestClient webTestClient;
 
-//    @Nested
-//    class TourDeJeu {
-//
-//        @Test
-//        void je_fais_un_tour_de_jeu() throws Exception {
-//            jeDemarreLaPartie();
-//            jePioche();
-//            jeRemplaceUneCarteDeMonPlateau();
-//        }
-//
-//        private void jeRemplaceUneCarteDeMonPlateau() throws Exception {
-//            jeRemplaceUneCarteDeMonPlateauPour("Awa");
-//        }
-//
-//        private void jePioche() throws Exception {
-//            jePiochePour("Awa");
-//        }
-//
-//        private void jeDemarreLaPartie() throws Exception {
-//            jeDemarreLaPartiePour("Awa");
-//        }
-//
-//    }
-//
-//    @Nested
-//    class Manche{
-//        @Test
-//        void je_fais_un_tour_de_jeu() throws Exception {
-//            String awa = "Awa";
-//            String maxime = "Maxime";
-//
-//            jeDemarreLaPartiePour(awa, maxime);
-//
-//            jePiochePour(awa);
-//            jeRemplaceUneCarteDeMonPlateauPour(awa);
-//
-//            jePiochePour(maxime);
-//            jeRemplaceUneCarteDeMonPlateauPour(maxime);
-//        }
-//    }
-//
-//    private void jeRemplaceUneCarteDeMonPlateauPour(String joueur) throws Exception {
-//        String positionDeLaCarteARemplacer = """
-//                {
-//                    "colonne": 3,
-//                    "ligne": 2
-//                }
-//                """;
-//
-//        mockMvc.perform(put("/partie/1/jouer/remplacer")
+    @Nested
+    class TourDeJeu {
+
+        @Test
+        void je_fais_un_tour_de_jeu() throws Exception {
+            jeDemarreLaPartie();
+            jePioche();
+            jeRemplaceUneCarteDeMonPlateau();
+        }
+
+        private void jeRemplaceUneCarteDeMonPlateau(){
+            jeRemplaceUneCarteDeMonPlateauPour("Awa");
+        }
+
+        private void jePioche() throws Exception {
+            jePiochePour("Awa");
+        }
+
+        private void jeDemarreLaPartie() {
+            jeDemarreLaPartiePour("Awa");
+        }
+
+    }
+
+    @Nested
+    class Manche{
+        @Test
+        void je_fais_un_tour_de_jeu() {
+            String awa = "Awa";
+            String maxime = "Maxime";
+
+            jeDemarreLaPartiePour(awa, maxime);
+
+            jePiochePour(awa);
+            jeRemplaceUneCarteDeMonPlateauPour(awa);
+
+            jePiochePour(maxime);
+            jeRemplaceUneCarteDeMonPlateauPour(maxime);
+        }
+    }
+
+    private void jeRemplaceUneCarteDeMonPlateauPour(String joueur) {
+        String positionDeLaCarteARemplacer = """
+                {
+                    "colonne": 3,
+                    "ligne": 2
+                }
+                """;
+
+        webTestClient.post()
+                .uri("/manches/1/remplacer")
 //                        .header("joueur", joueur)
-//                        .content(positionDeLaCarteARemplacer)
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andDo(print())
-//                .andExpect(status().isOk());
-//    }
-//
-//    private void jePiochePour(String joueur) throws Exception {
-//        mockMvc.perform(get("/partie/1/piocher")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(positionDeLaCarteARemplacer)
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    private void jePiochePour(String joueur) {
+        webTestClient.post()
+                .uri("/manches/1/piocher/pile")
+                .exchange()
 //                        .header("joueur", joueur))
-//                .andDo(print())
-//                .andExpect(status().isOk())
+                .expectStatus().isOk();
 //                .andExpect(jsonPath("valeur").value("MOINS_DEUX"));
-//    }
-//
-//    private void jeDemarreLaPartiePour(String ... joueurs) throws Exception {
-//        String contentJoueurs = construireJsonAPartirDe(joueurs);
-//
-//        mockMvc.perform(post("/partie/demarrerUneNouvellePartie")
-//                        .content(contentJoueurs)
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andDo(print())
-//                .andExpect(status().isCreated())
+    }
+
+    private void jeDemarreLaPartiePour(String ... joueurs) {
+        String contentJoueurs = construireJsonAPartirDe(joueurs);
+
+        webTestClient.post()
+                .uri("/partie/demarrerUneNouvellePartie")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(contentJoueurs)
+                .exchange()
+                .expectStatus().isCreated();
 //                .andExpect(jsonPath("$").value(1));
-//    }
-//
-//    @NotNull
-//    private String construireJsonAPartirDe(String[] joueurs) {
-//        return Stream.of(joueurs)
-//                .map(s-> "\""+s+"\"")
-//                .collect(Collectors.joining(",","[","]"));
-//    }
+    }
+
+    @NotNull
+    private String construireJsonAPartirDe(String[] joueurs) {
+        return Stream.of(joueurs)
+                .map(s-> "\""+s+"\"")
+                .collect(Collectors.joining(",","[","]"));
+    }
 
 }
