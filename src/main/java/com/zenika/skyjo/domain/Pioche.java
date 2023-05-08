@@ -6,7 +6,17 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public record Pioche(LinkedList<Carte> cartes) {
+public class Pioche {
+
+    private final LinkedList<Carte> cartes;
+
+    public Pioche(LinkedList<Carte> cartes) {
+        this.cartes = cartes;
+    }
+
+    public LinkedList<Carte> getCartes() {
+        return cartes;
+    }
 
     public Carte tirerUneCarte() throws PiocheVideException {
         if (cartes.size() == 0) {
