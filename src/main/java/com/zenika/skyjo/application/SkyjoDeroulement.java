@@ -53,7 +53,7 @@ public class SkyjoDeroulement {
         return manche;
     }
 
-    private Manche recupererLaManche(String mancheId) {
+    public Manche recupererLaManche(String mancheId) {
         return mancheRepository.findById(mancheId).orElseThrow(MancheInexistanteException::new);
     }
 }
