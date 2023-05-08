@@ -25,15 +25,15 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 @Validated
 public class DemarrerControleur {
 
-    private final SkyjoDeroulement service;
+    private final SkyjoDeroulement deroulement;
 
-    public DemarrerControleur(SkyjoDeroulement service) {
-        this.service = service;
+    public DemarrerControleur(SkyjoDeroulement deroulement) {
+        this.deroulement = deroulement;
     }
 
     @PostMapping("/nouvellePartie")
     public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@Valid @RequestBody ListeDesJoueursDto listeDesJoueursDto) {
-        Manche manche = service.preparerUneManche(listeDesJoueursDto.joueurs());
+        Manche manche = deroulement.preparerUneManche(listeDesJoueursDto.joueurs());
         return ResponseEntity.created(URI.create("/manches/" + manche.getId())).body(MancheDto.fromDomain(manche));
     }
 
@@ -42,7 +42,7 @@ public class DemarrerControleur {
                                                          @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                          @Valid @RequestBody DeuxPositionsDto deuxPositionsDto) {
 
-        Manche manche = service.engagerUnJoueurSurUneManche(mancheId, joueur, deuxPositionsDto.positions());
+        Manche manche = deroulement.engagerUnJoueurSurUneManche(mancheId, joueur, deuxPositionsDto.positions());
         return ResponseEntity.ok().body(MancheDto.fromDomain(manche));
     }
 }

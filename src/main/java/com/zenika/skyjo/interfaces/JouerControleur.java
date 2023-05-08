@@ -23,17 +23,17 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 @Validated
 public class JouerControleur {
 
-    private final SkyjoDeroulement service;
+    private final SkyjoDeroulement deroulement;
 
-    public JouerControleur(SkyjoDeroulement service) {
-        this.service = service;
+    public JouerControleur(SkyjoDeroulement deroulement) {
+        this.deroulement = deroulement;
     }
 
     @PostMapping("/{mancheId}/jouer/remplacer")
     public ResponseEntity<MancheDto> remplacerCarteEnMainSurLePlateau(@PathVariable String mancheId,
                                                                       @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                                       @Valid @RequestBody Position position) {
-        Manche manche = service.unJoueurJoueEn(position, mancheId, joueur);
+        Manche manche = deroulement.unJoueurJoueEn(position, mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }
 

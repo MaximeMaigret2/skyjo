@@ -19,24 +19,24 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 @Validated
 public class PiocherControleur {
 
-    private final SkyjoDeroulement service;
+    private final SkyjoDeroulement deroulement;
 
-    public PiocherControleur(SkyjoDeroulement service) {
-        this.service = service;
+    public PiocherControleur(SkyjoDeroulement deroulement) {
+        this.deroulement = deroulement;
     }
 
     @PostMapping(path = "/{mancheId}/piocher/pile")
     public ResponseEntity<MancheDto> piochePile(@PathVariable String mancheId,
                                                 @NotBlank @RequestHeader(JOUEUR) String joueur) {
 
-        Manche manche = service.unJoueurPiochePile(mancheId, joueur);
+        Manche manche = deroulement.unJoueurPiochePile(mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }
 
     @PostMapping(path = "/{mancheId}/piocher/defausse")
     public ResponseEntity<MancheDto> piocheDefausse(@PathVariable String mancheId,
                                                     @NotBlank @RequestHeader(JOUEUR) String joueur) {
-        Manche manche = service.unJoueurPiocheDefausse(mancheId, joueur);
+        Manche manche = deroulement.unJoueurPiocheDefausse(mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }
 }

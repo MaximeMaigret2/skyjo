@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/manches")
 public class ConsulterControleur {
-    private final SkyjoDeroulement skyjoDeroulement;
+    private final SkyjoDeroulement deroulement;
 
-    public ConsulterControleur(SkyjoDeroulement skyjoDeroulement) {
-        this.skyjoDeroulement = skyjoDeroulement;
+    public ConsulterControleur(SkyjoDeroulement deroulement) {
+        this.deroulement = deroulement;
     }
 
     @GetMapping("/{mancheId}")
     public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@PathVariable String mancheId) {
-        return ResponseEntity.ok(MancheDto.fromDomain(skyjoDeroulement.recupererLaManche(mancheId)));
+        return ResponseEntity.ok(MancheDto.fromDomain(deroulement.recupererLaManche(mancheId)));
     }
 }
