@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
+
 @RestController
 @RequestMapping("/manches")
 @Validated
@@ -29,7 +31,7 @@ public class JouerControleur {
 
     @PostMapping("/{mancheId}/jouer/remplacer")
     public ResponseEntity<MancheDto> remplacerCarteEnMainSurLePlateau(@PathVariable String mancheId,
-                                                                      @NotBlank @RequestHeader("joueur") String joueur,
+                                                                      @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                                       @Valid @RequestBody Position position) {
         Manche manche = service.unJoueurJoueEn(position, mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
@@ -37,7 +39,7 @@ public class JouerControleur {
 
     @PostMapping("/{mancheId}/jouer/reveler")
     public ResponseEntity<MancheDto> revelerCartePlateau(@PathVariable String mancheId,
-                                                         @NotBlank @RequestHeader("joueur") String joueur,
+                                                         @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                          @Valid @RequestBody Position position) {
 
         throw new NotImplementedException();
@@ -45,7 +47,7 @@ public class JouerControleur {
 
     @PostMapping("/{mancheId}/jouer/deposer")
     public ResponseEntity<MancheDto> deposerSurLaDefausse(@PathVariable String mancheId,
-                                                          @NotBlank @RequestHeader("joueur") String joueur,
+                                                          @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                           @Valid @RequestBody Position coup) {
         // ??? c'est un impact de quand on révèle ça nan ?
         throw new NotImplementedException();

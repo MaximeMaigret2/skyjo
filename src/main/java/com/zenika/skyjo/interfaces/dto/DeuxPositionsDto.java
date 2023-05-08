@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
-public record DeuxCartesDto(
+public record DeuxPositionsDto(
         @NotNull
         @Size(min = 2, max = 2)
         List<Position> positions) {

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
+
 @RestController
 @RequestMapping("/manches")
 @Validated
@@ -25,7 +27,7 @@ public class PiocherControleur {
 
     @PostMapping(path = "/{mancheId}/piocher/pile")
     public ResponseEntity<MancheDto> piochePile(@PathVariable String mancheId,
-                                                @NotBlank @RequestHeader("joueur") String joueur) {
+                                                @NotBlank @RequestHeader(JOUEUR) String joueur) {
 
         Manche manche = service.unJoueurPiochePile(mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
@@ -33,7 +35,7 @@ public class PiocherControleur {
 
     @PostMapping(path = "/{mancheId}/piocher/defausse")
     public ResponseEntity<MancheDto> piocheDefausse(@PathVariable String mancheId,
-                                                    @NotBlank @RequestHeader("joueur") String joueur) {
+                                                    @NotBlank @RequestHeader(JOUEUR) String joueur) {
         Manche manche = service.unJoueurPiocheDefausse(mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }

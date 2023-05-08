@@ -4,7 +4,7 @@ import com.zenika.skyjo.application.SkyjoDeroulement;
 import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.interfaces.dto.ListeDesJoueursDto;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
-import com.zenika.skyjo.interfaces.dto.DeuxCartesDto;
+import com.zenika.skyjo.interfaces.dto.DeuxPositionsDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
+
+import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 
 @RestController
 @RequestMapping("/manches")
@@ -37,10 +39,10 @@ public class DemarrerControleur {
 
     @PostMapping("/{mancheId}/engager")
     public ResponseEntity<MancheDto> retournerDeuxCartes(@PathVariable String mancheId,
-                                                         @NotBlank @RequestHeader("joueur") String joueur,
-                                                         @Valid @RequestBody DeuxCartesDto deuxCartesDto) {
+                                                         @NotBlank @RequestHeader(JOUEUR) String joueur,
+                                                         @Valid @RequestBody DeuxPositionsDto deuxPositionsDto) {
 
-        Manche manche = service.engagerUnJoueurSurUneManche(mancheId, joueur, deuxCartesDto.positions());
+        Manche manche = service.engagerUnJoueurSurUneManche(mancheId, joueur, deuxPositionsDto.positions());
         return ResponseEntity.ok().body(MancheDto.fromDomain(manche));
     }
 }
