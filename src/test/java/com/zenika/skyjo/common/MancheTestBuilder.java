@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class MancheBuilderTest extends Manche.MancheBuilder {
+public class MancheTestBuilder extends Manche.MancheBuilder {
 
     private final List<Carte> cartesPlateau = new ArrayList<>();
     private final List<Carte> cartesPioche = new ArrayList<>();
@@ -18,17 +18,17 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
     private final String id;
     private Carte carteEnMain = Carte.uneCarteDe(Valeur.ZERO); // defaut
 
-    public MancheBuilderTest(String id) {
+    public MancheTestBuilder(String id) {
         this.id = id;
     }
 
-    public MancheBuilderTest avecPlateau(Carte[][] plateau){
+    public MancheTestBuilder avecPlateau(Carte[][] plateau){
         List<Carte> cartesDuPlateau = Arrays.stream(plateau).flatMap(Stream::of).toList();
         cartesPlateau.addAll(cartesDuPlateau);
         return this;
     }
 
-    public MancheBuilderTest avecPlateauQuelconqueCache(){
+    public MancheTestBuilder avecPlateauQuelconqueCache(){
         // plateau rempli de 0
         cartesPlateau.addAll(IntStream.range(0, 12)
                 .mapToObj(index ->
@@ -37,33 +37,33 @@ public class MancheBuilderTest extends Manche.MancheBuilder {
         return this;
     }
 
-    public MancheBuilderTest avecPiocheFixee(List<Carte> cartes){
+    public MancheTestBuilder avecPiocheFixee(List<Carte> cartes){
         cartesPioche.addAll(cartes);
         return this;
     }
 
-    public MancheBuilderTest avecDefausseFixee(List<Carte> cartes){
+    public MancheTestBuilder avecDefausseFixee(List<Carte> cartes){
         cartes.forEach(Carte::retournerFaceVisible);
         cartesPioche.addAll(cartes);
         return this;
     }
 
-    public MancheBuilderTest avecDefausseFixee(Carte carte) {
+    public MancheTestBuilder avecDefausseFixee(Carte carte) {
         carte.retournerFaceVisible();
         cartesPioche.add(carte);
         return this;
     }
 
-    public MancheBuilderTest pourJoueur(String joueur){
+    public MancheTestBuilder pourJoueur(String joueur){
         this.joueur = joueur;
         return this;
     }
 
-    public static MancheBuilderTest nouvelleMancheDeTest(String id){
-        return new MancheBuilderTest(id);
+    public static MancheTestBuilder nouvelleMancheDeTest(String id){
+        return new MancheTestBuilder(id);
     }
 
-    public MancheBuilderTest avecCarteEnMain(Carte carteEnMain) {
+    public MancheTestBuilder avecCarteEnMain(Carte carteEnMain) {
         carteEnMain.retournerFaceVisible();
         this.carteEnMain = carteEnMain;
         return this;

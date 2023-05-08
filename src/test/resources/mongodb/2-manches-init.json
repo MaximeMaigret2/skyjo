@@ -1,0 +1,1304 @@
+{
+  "insert": "manches",
+  "documents": [
+    {
+      "_id": {
+        "$oid": "6457703203dd1778669a0410"
+      },
+      "_class": "com.zenika.skyjo.domain.Manche",
+      "defausse": {
+        "cartes": [
+          {
+            "valeur": "ZERO",
+            "statut": "VISIBLE"
+          }
+        ]
+      },
+      "etat": "INITIALISATION",
+      "pioche": {
+        "cartes": [
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          }
+        ]
+      },
+      "plateaux": [
+        {
+          "cartes": [
+            [
+              {
+                "valeur": "SEPT",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "QUATRE",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "UN",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ONZE",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DOUZE",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DIX",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              }
+            ]
+          ],
+          "joueur": "Julien"
+        },
+        {
+          "cartes": [
+            [
+              {
+                "valeur": "MOINS_UN",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "HUIT",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "ONZE",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "MOINS_UN",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "UN",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "SEPT",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "SIX",
+                "statut": "CACHE"
+              }
+            ]
+          ],
+          "joueur": "Laurène"
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "645796f094153b6fb56f79e0"
+      },
+      "_class": "com.zenika.skyjo.domain.Manche",
+      "defausse": {
+        "cartes": [
+          {
+            "valeur": "NEUF",
+            "statut": "VISIBLE"
+          }
+        ]
+      },
+      "etat": "INITIALISATION",
+      "pioche": {
+        "cartes": [
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "HUIT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ZERO",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_DEUX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SIX",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "MOINS_UN",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "SEPT",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "DOUZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "NEUF",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "ONZE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "CINQ",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "QUATRE",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          },
+          {
+            "valeur": "TROIS",
+            "statut": "CACHE"
+          }
+        ]
+      },
+      "plateaux": [
+        {
+          "cartes": [
+            [
+              {
+                "valeur": "HUIT",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "TROIS",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "QUATRE",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "HUIT",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "MOINS_DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "QUATRE",
+                "statut": "CACHE"
+              }
+            ]
+          ],
+          "joueur": "Marie"
+        },
+        {
+          "cartes": [
+            [
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "QUATRE",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "QUATRE",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "TROIS",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "MOINS_DEUX",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              }
+            ]
+          ],
+          "joueur": "Malo"
+        },
+        {
+          "cartes": [
+            [
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "UN",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "HUIT",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "NEUF",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "MOINS_UN",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "HUIT",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "DIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "UN",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "SEPT",
+                "statut": "CACHE"
+              }
+            ]
+          ],
+          "joueur": "Frédéric"
+        }
+      ]
+    }
+  ]
+}

@@ -1,15 +1,18 @@
 package com.zenika.skyjo.joue;
 
 import com.zenika.skyjo.common.IntegrationTest;
-import com.zenika.skyjo.common.MancheBuilderTest;
+import com.zenika.skyjo.common.MancheTestBuilder;
 import com.zenika.skyjo.domain.Carte;
 import com.zenika.skyjo.domain.Manche;
-import com.zenika.skyjo.interfaces.repository.MancheRepository;
+import com.zenika.skyjo.domain.MancheRepository;
 import com.zenika.skyjo.domain.Valeur;
+import com.zenika.skyjo.interfaces.dto.MancheDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
+
+import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 
 @IntegrationTest
 class JouerControleurIntegrationTest {
@@ -23,7 +26,7 @@ class JouerControleurIntegrationTest {
     @Test
     void je_peux_remplacer_une_carte() {
 
-        Manche manche = MancheBuilderTest.nouvelleMancheDeTest("1")
+        Manche manche = MancheTestBuilder.nouvelleMancheDeTest("1")
                 .pourJoueur("Awa")
                 .avecPlateauQuelconqueCache()
                 .avecCarteEnMain(Carte.uneCarteDe(Valeur.DEUX))
@@ -41,12 +44,12 @@ class JouerControleurIntegrationTest {
 
         webTestClient.post()
                 .uri("/manches/1/jouer/remplacer")
-                .header("joueur", "Awa")
+                .header(JOUEUR, "Awa")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(positionDeLaCarteARemplacer)
                 .exchange()
                 .expectStatus().isOk()
-                .returnResult(Manche.class)
+                .returnResult(MancheDto.class)
                 .getResponseBody().blockFirst();
     }
 

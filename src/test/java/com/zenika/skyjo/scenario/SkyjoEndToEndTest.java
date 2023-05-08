@@ -77,7 +77,7 @@ class SkyjoEndToEndTest {
 
         webTestClient.post()
                 .uri("/manches/1/remplacer")
-//                        .header("joueur", joueur)
+//                        .header(JOUEUR, joueur)
                         .contentType(MediaType.APPLICATION_JSON)
                         .bodyValue(positionDeLaCarteARemplacer)
                 .exchange()
@@ -88,7 +88,7 @@ class SkyjoEndToEndTest {
         webTestClient.post()
                 .uri("/manches/1/piocher/pile")
                 .exchange()
-//                        .header("joueur", joueur))
+//                        .header(JOUEUR, joueur))
                 .expectStatus().isOk();
 //                .andExpect(jsonPath("valeur").value("MOINS_DEUX"));
     }
