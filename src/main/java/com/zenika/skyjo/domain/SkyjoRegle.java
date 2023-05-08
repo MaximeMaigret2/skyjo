@@ -2,22 +2,12 @@ package com.zenika.skyjo.domain;
 
 import com.zenika.skyjo.domain.exceptions.NombreDeJoueursImpossible;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class SkyjoLogique {
-
-    private static SkyjoLogique instance;
-
-    private SkyjoLogique(){
-    }
-
-    public static SkyjoLogique getInstance(){
-        if(instance == null){
-            instance = new SkyjoLogique();
-        }
-        return instance;
-    }
+@Service
+public class SkyjoRegle {
 
     public Manche engagerUnJoueurSurUneManche(Manche manche, String nomJoueur, List<Position> positions) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);

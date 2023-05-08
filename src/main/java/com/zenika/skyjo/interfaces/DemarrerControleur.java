@@ -1,6 +1,6 @@
 package com.zenika.skyjo.interfaces;
 
-import com.zenika.skyjo.application.SkyjoService;
+import com.zenika.skyjo.application.SkyjoDeroulement;
 import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.interfaces.dto.ListeDesJoueursDto;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
@@ -23,9 +23,9 @@ import java.net.URI;
 @Validated
 public class DemarrerControleur {
 
-    private final SkyjoService service;
+    private final SkyjoDeroulement service;
 
-    public DemarrerControleur(SkyjoService service) {
+    public DemarrerControleur(SkyjoDeroulement service) {
         this.service = service;
     }
 

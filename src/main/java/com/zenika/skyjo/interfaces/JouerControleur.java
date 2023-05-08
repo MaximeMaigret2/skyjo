@@ -1,6 +1,6 @@
 package com.zenika.skyjo.interfaces;
 
-import com.zenika.skyjo.application.SkyjoService;
+import com.zenika.skyjo.application.SkyjoDeroulement;
 import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.domain.Position;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 public class JouerControleur {
 
-    private final SkyjoService service;
+    private final SkyjoDeroulement service;
 
-    public JouerControleur(SkyjoService service) {
+    public JouerControleur(SkyjoDeroulement service) {
         this.service = service;
     }
 

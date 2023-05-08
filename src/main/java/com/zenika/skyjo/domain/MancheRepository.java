@@ -1,4 +1,4 @@
-package com.zenika.skyjo.interfaces.repository;
+package com.zenika.skyjo.domain;
 
 import com.zenika.skyjo.domain.Manche;
 import org.springframework.data.mongodb.repository.MongoRepository;

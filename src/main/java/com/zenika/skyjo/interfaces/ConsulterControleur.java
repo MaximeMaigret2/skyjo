@@ -1,6 +1,6 @@
 package com.zenika.skyjo.interfaces;
 
-import com.zenika.skyjo.interfaces.repository.MancheRepository;
+import com.zenika.skyjo.domain.MancheRepository;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

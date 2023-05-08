@@ -1,6 +1,6 @@
 package com.zenika.skyjo.interfaces;
 
-import com.zenika.skyjo.application.SkyjoService;
+import com.zenika.skyjo.application.SkyjoDeroulement;
 import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
 import jakarta.validation.constraints.NotBlank;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 public class PiocherControleur {
 
-    private final SkyjoService service;
+    private final SkyjoDeroulement service;
 
-    public PiocherControleur(SkyjoService service) {
+    public PiocherControleur(SkyjoDeroulement service) {
         this.service = service;
     }
 
