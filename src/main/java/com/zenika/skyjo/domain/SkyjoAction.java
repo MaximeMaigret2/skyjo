@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SkyjoRegle {
+public class SkyjoAction {
 
     public Manche engagerUnJoueurSurUneManche(Manche manche, String nomJoueur, List<Position> positions) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);

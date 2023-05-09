@@ -3,46 +3,46 @@ package com.zenika.skyjo.application;
 import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.domain.MancheRepository;
 import com.zenika.skyjo.domain.Position;
-import com.zenika.skyjo.domain.SkyjoRegle;
+import com.zenika.skyjo.domain.SkyjoAction;
 import com.zenika.skyjo.domain.exceptions.MancheInexistanteException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class SkyjoDeroulement {
+public class SkyjoOrchestration {
 
     private final MancheRepository mancheRepository;
-    private final SkyjoRegle skyjoRegle;
+    private final SkyjoAction skyjoAction;
 
-    public SkyjoDeroulement(MancheRepository mancheRepository, SkyjoRegle skyjoRegle) {
+    public SkyjoOrchestration(MancheRepository mancheRepository, SkyjoAction skyjoAction) {
         this.mancheRepository = mancheRepository;
-        this.skyjoRegle = skyjoRegle;
+        this.skyjoAction = skyjoAction;
     }
 
     public Manche engagerUnJoueurSurUneManche(String mancheId, String joueur, List<Position> positions) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoRegle.engagerUnJoueurSurUneManche(manche, joueur, positions);
+        manche = skyjoAction.engagerUnJoueurSurUneManche(manche, joueur, positions);
         mancheRepository.save(manche);
         return manche;
     }
 
     public Manche unJoueurJoueEn(Position position, String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoRegle.unJoueurJoueEn(position, manche, joueur);
+        manche = skyjoAction.unJoueurJoueEn(position, manche, joueur);
         mancheRepository.save(manche);
         return manche;
     }
 
     public Manche preparerUneManche(List<String> joueurs) {
-        Manche manche = skyjoRegle.preparerUneManche(joueurs);
+        Manche manche = skyjoAction.preparerUneManche(joueurs);
         mancheRepository.save(manche);
         return manche;
     }
 
     public Manche unJoueurPiochePile(String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoRegle.unJoueurPiochePile(manche, joueur);
+        manche = skyjoAction.unJoueurPiochePile(manche, joueur);
         mancheRepository.save(manche);
         return manche;
     }

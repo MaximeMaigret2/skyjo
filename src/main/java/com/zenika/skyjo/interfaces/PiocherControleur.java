@@ -1,6 +1,6 @@
 package com.zenika.skyjo.interfaces;
 
-import com.zenika.skyjo.application.SkyjoDeroulement;
+import com.zenika.skyjo.application.SkyjoOrchestration;
 import com.zenika.skyjo.domain.Manche;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
 import jakarta.validation.constraints.NotBlank;
@@ -19,9 +19,9 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 @Validated
 public class PiocherControleur {
 
-    private final SkyjoDeroulement deroulement;
+    private final SkyjoOrchestration deroulement;
 
-    public PiocherControleur(SkyjoDeroulement deroulement) {
+    public PiocherControleur(SkyjoOrchestration deroulement) {
         this.deroulement = deroulement;
     }
 
