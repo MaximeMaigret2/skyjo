@@ -1,5 +1,6 @@
 package com.zenika.skyjo.consulter;
 
+import com.zenika.skyjo.common.AffichageManche;
 import com.zenika.skyjo.common.IntegrationTest;
 import com.zenika.skyjo.common.MongoDbCommand;
 import com.zenika.skyjo.domain.Statut;
@@ -23,7 +24,7 @@ public class ConsulterControleurIntegrationTest {
     private WebTestClient webTestClient;
 
     @Test
-    @MongoDbCommand(commands = {"mongodb/1-manche-init.json", "mongodb/2-manches-init.json"})
+    @MongoDbCommand(commands = {"mongodb/1-manches-init.json", "mongodb/2-manches-init-en-cours.json"})
     public void acceder_a_une_manche_etat_initialisation_et_le_contenu_est_cache() {
         // Étant donné qu'on a des manches en base de données cf. MongoDbCommand
         // Quand
@@ -50,11 +51,12 @@ public class ConsulterControleurIntegrationTest {
                 // le statut des cartes de la défausse est VISIBLE et on dispose d'une défausse de 1 carte
                 .jsonPath("$.defausse.cartes[*].statut").value(both(hasSize(1)).and(contains(Statut.VISIBLE.toString())))
                 // et ils disposent de la valeur de la carte de la défausse
-                .jsonPath("$.defausse.cartes[*].valeur").exists();
+                .jsonPath("$.defausse.cartes[*].valeur").exists()
+                .consumeWith(AffichageManche.convertirEtAfficher());
     }
 
     @Test
-    @MongoDbCommand(commands = {"mongodb/1-manche-init.json", "mongodb/2-manches-init.json"})
+    @MongoDbCommand(commands = {"mongodb/1-manches-init.json", "mongodb/2-manches-init-en-cours.json"})
     public void la_manche_n_existe_pas() {
         // Étant donné qu'on a des manches en base de données cf. MongoDbCommand
         // Quand

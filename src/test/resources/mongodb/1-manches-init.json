@@ -532,7 +532,11 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "ZERO",
+                "valeur": "NEUF",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "SIX",
                 "statut": "CACHE"
               }
             ],
@@ -546,31 +550,25 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "CINQ",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "NEUF",
-                "statut": "CACHE"
-              },
-              {
                 "valeur": "DOUZE",
                 "statut": "CACHE"
               },
               {
-                "valeur": "ZERO",
+                "valeur": "ONZE",
                 "statut": "CACHE"
               }
             ],
             [
               {
-                "valeur": "SIX",
+                "valeur": "ZERO",
                 "statut": "CACHE"
               },
               {
-                "valeur": "ONZE",
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
                 "statut": "CACHE"
               },
               {
@@ -589,21 +587,11 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "SIX",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "DOUZE",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
                 "valeur": "ZERO",
                 "statut": "CACHE"
               },
               {
-                "valeur": "ONZE",
+                "valeur": "DEUX",
                 "statut": "CACHE"
               },
               {
@@ -613,7 +601,11 @@
             ],
             [
               {
-                "valeur": "DEUX",
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ONZE",
                 "statut": "CACHE"
               },
               {
@@ -626,6 +618,10 @@
               }
             ],
             [
+              {
+                "valeur": "DOUZE",
+                "statut": "CACHE"
+              },
               {
                 "valeur": "UN",
                 "statut": "CACHE"

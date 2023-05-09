@@ -528,17 +528,21 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "DEUX",
+                "valeur": "ZERO",
                 "statut": "CACHE"
               },
               {
-                "valeur": "QUATRE",
+                "valeur": "DOUZE",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DIX",
                 "statut": "CACHE"
               }
             ],
             [
               {
-                "valeur": "ZERO",
+                "valeur": "DEUX",
                 "statut": "CACHE"
               },
               {
@@ -546,31 +550,25 @@
                 "statut": "CACHE"
               },
               {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
+                "valeur": "QUATRE",
+                "statut": "CACHE"
+              },
+              {
                 "valeur": "ONZE",
                 "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "DOUZE",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "ZERO",
-                "statut": "CACHE"
               },
               {
                 "valeur": "DIX",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "DIX",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "ZERO",
                 "statut": "CACHE"
               },
               {
@@ -589,17 +587,21 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "HUIT",
+                "valeur": "ONZE",
                 "statut": "CACHE"
               },
               {
-                "valeur": "ZERO",
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DEUX",
                 "statut": "CACHE"
               }
             ],
             [
               {
-                "valeur": "ONZE",
+                "valeur": "HUIT",
                 "statut": "CACHE"
               },
               {
@@ -607,31 +609,25 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "DEUX",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "SIX",
-                "statut": "CACHE"
-              },
-              {
                 "valeur": "CINQ",
                 "statut": "CACHE"
               },
               {
-                "valeur": "UN",
+                "valeur": "SEPT",
                 "statut": "CACHE"
               }
             ],
             [
               {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
                 "valeur": "DEUX",
                 "statut": "CACHE"
               },
               {
-                "valeur": "SEPT",
+                "valeur": "UN",
                 "statut": "CACHE"
               },
               {
@@ -1123,19 +1119,37 @@
                 "statut": "CACHE"
               },
               {
+                "valeur": "TROIS",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "DEUX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "HUIT",
+                "statut": "CACHE"
+              }
+            ],
+            [
+              {
                 "valeur": "DIX",
                 "statut": "CACHE"
               },
               {
                 "valeur": "CINQ",
                 "statut": "CACHE"
+              },
+              {
+                "valeur": "CINQ",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "MOINS_DEUX",
+                "statut": "CACHE"
               }
             ],
             [
-              {
-                "valeur": "TROIS",
-                "statut": "CACHE"
-              },
               {
                 "valeur": "CINQ",
                 "statut": "CACHE"
@@ -1143,29 +1157,9 @@
               {
                 "valeur": "ZERO",
                 "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "DEUX",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "CINQ",
-                "statut": "CACHE"
               },
               {
                 "valeur": "QUATRE",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "HUIT",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "MOINS_DEUX",
                 "statut": "CACHE"
               },
               {
@@ -1184,21 +1178,11 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "SIX",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "ZERO",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
                 "valeur": "QUATRE",
                 "statut": "CACHE"
               },
               {
-                "valeur": "QUATRE",
+                "valeur": "DIX",
                 "statut": "CACHE"
               },
               {
@@ -1208,7 +1192,11 @@
             ],
             [
               {
-                "valeur": "DIX",
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "QUATRE",
                 "statut": "CACHE"
               },
               {
@@ -1216,17 +1204,21 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "MOINS_DEUX",
+                "valeur": "DEUX",
                 "statut": "CACHE"
               }
             ],
             [
               {
+                "valeur": "ZERO",
+                "statut": "CACHE"
+              },
+              {
                 "valeur": "CINQ",
                 "statut": "CACHE"
               },
               {
-                "valeur": "DEUX",
+                "valeur": "MOINS_DEUX",
                 "statut": "CACHE"
               },
               {
@@ -1245,17 +1237,21 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "UN",
+                "valeur": "DEUX",
                 "statut": "CACHE"
               },
               {
                 "valeur": "HUIT",
                 "statut": "CACHE"
+              },
+              {
+                "valeur": "DIX",
+                "statut": "CACHE"
               }
             ],
             [
               {
-                "valeur": "DEUX",
+                "valeur": "UN",
                 "statut": "CACHE"
               },
               {
@@ -1263,7 +1259,11 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "MOINS_UN",
+                "valeur": "SIX",
+                "statut": "CACHE"
+              },
+              {
+                "valeur": "UN",
                 "statut": "CACHE"
               }
             ],
@@ -1273,21 +1273,11 @@
                 "statut": "CACHE"
               },
               {
-                "valeur": "SIX",
+                "valeur": "MOINS_UN",
                 "statut": "CACHE"
               },
               {
                 "valeur": "DEUX",
-                "statut": "CACHE"
-              }
-            ],
-            [
-              {
-                "valeur": "DIX",
-                "statut": "CACHE"
-              },
-              {
-                "valeur": "UN",
                 "statut": "CACHE"
               },
               {

@@ -25,10 +25,10 @@ public class Plateau {
 
 
     private static Carte[][] concevoirTableauDeCartes(Pioche pioche) {
-        Carte[][] cartes = new Carte[LARGEUR][HAUTEUR];
-        IntStream.range(0, cartes.length).forEach(colonne ->
-                IntStream.range(0, cartes[colonne].length).forEach(ligne ->
-                        cartes[colonne][ligne] = pioche.tirerUneCarte())
+        Carte[][] cartes = new Carte[HAUTEUR][LARGEUR];
+        IntStream.range(0, cartes.length).forEach(ligne ->
+                IntStream.range(0, cartes[ligne].length).forEach(colonne ->
+                        cartes[ligne][colonne] = pioche.tirerUneCarte())
         );
         return cartes;
     }
@@ -38,7 +38,7 @@ public class Plateau {
     }
 
     public Carte carteEnPosition(Position position) {
-        return cartes[position.colonne()][position.ligne()];
+        return cartes[position.ligne()][position.colonne()];
     }
 
     public void prendreUneCarteEnMain(@NotNull Carte carteEnMain) {
