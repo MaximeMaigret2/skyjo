@@ -17,10 +17,6 @@ public class Carte {
         this.statut = Statut.VISIBLE;
     }
 
-    public void retournerFaceCachee() {
-        this.statut = Statut.CACHE;
-    }
-
     public Valeur getValeur() {
         return valeur;
     }

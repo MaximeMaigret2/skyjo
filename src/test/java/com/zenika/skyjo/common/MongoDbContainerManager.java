@@ -46,7 +46,7 @@ public class MongoDbContainerManager implements TestExecutionListener, Applicati
     }
 
     @Override
-    public void beforeTestMethod(@NonNull TestContext testContext) throws IOException {
+    public void beforeTestMethod(@NonNull TestContext testContext) {
         MongoTemplate mongo = testContext.getApplicationContext().getBean(MongoTemplate.class);
         mongo.getCollectionNames().forEach(mongo::dropCollection);
         // Execute MongoDbCommands

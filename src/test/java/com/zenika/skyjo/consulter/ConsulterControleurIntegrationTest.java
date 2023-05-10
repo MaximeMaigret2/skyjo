@@ -30,12 +30,12 @@ public class ConsulterControleurIntegrationTest {
         // Quand
         webTestClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        // je recupére la manche avec Julien et Laurène
+                        // je récupère la manche avec Julien et Laurène
                         .path("/manches/{id}")
                         .build("6457703203dd1778669a0410"))
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
-                // alors elle existe
+                // alors, elle existe
                 .expectStatus().isOk()
                 .expectBody()
                 // les deux joueurs sont bien Julien et Laurène
@@ -62,7 +62,7 @@ public class ConsulterControleurIntegrationTest {
         // Quand
         webTestClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        // je recupere une manche avec un identifiant aléatoire
+                        // je récupère une manche avec un identifiant aléatoire
                         .path("/manches/{id}")
                         .build(UUID.randomUUID()))
                 .accept(MediaType.APPLICATION_JSON)

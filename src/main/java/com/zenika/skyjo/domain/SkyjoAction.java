@@ -98,7 +98,7 @@ public class SkyjoAction {
         // Defausser la carte en main du joueur
         Carte carteEnMainAMettreDansLaDefausse = plateau.restituerCarteEnMain();
         defausse.ajouterALaDefausse(carteEnMainAMettreDansLaDefausse);
-        // Et reveler la position souhaité par le joueur
+        // Et reveler la position souhaitée par le joueur
         plateau.carteEnPosition(position).retournerFaceVisible();
         manche.verifierEtat();
         return manche;

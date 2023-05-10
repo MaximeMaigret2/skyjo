@@ -66,11 +66,11 @@ public class Manche {
 
     public Etat verifierEtat() {
         if (this.plateaux.stream().anyMatch(Plateau::plateauComplete)) {
-            this.etat = Etat.FINIE;
+            setEtat(Etat.FINIE);
         } else if (this.plateaux.stream().allMatch(Plateau::plateauEngage)) {
-            this.etat = Etat.ENCOURS;
+            setEtat(Etat.ENCOURS);
         } else {
-            this.etat = Etat.INITIALISATION;
+            setEtat(Etat.INITIALISATION);
         }
         return this.etat;
     }

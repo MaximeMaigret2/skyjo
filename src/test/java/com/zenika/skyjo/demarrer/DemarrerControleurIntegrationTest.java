@@ -39,7 +39,7 @@ class DemarrerControleurIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(jsonJoueurs)
                 .exchange()
-                // Alors elle est créée
+                // Alors, elle est créée
                 .expectStatus().isCreated()
                 .expectBody()
                 // On a trois joueurs
@@ -56,7 +56,7 @@ class DemarrerControleurIntegrationTest {
 
     @Test
     void je_veux_demarrer_une_nouvelle_partie_avec_un_seul_joueur() {
-        // Étant donné qu'on souhaite créer une manche de un seul joueur
+        // Étant donné qu'on souhaite créer une manche d'un seul joueur
         String jsonJoueurs = """
                 {
                   "joueurs": [
@@ -72,7 +72,7 @@ class DemarrerControleurIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(jsonJoueurs)
                 .exchange()
-                // Alors je ne peux pas car le nombre minimum de joueur est de deux
+                // Alors, je ne peux pas, car le nombre minimum de joueurs est de deux
                 .expectStatus().isBadRequest();
     }
 
