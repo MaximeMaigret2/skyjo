@@ -5,7 +5,6 @@ import com.zenika.skyjo.domain.exceptions.DefausseVideException;
 import java.util.LinkedList;
 
 public class Defausse {
-
     private final LinkedList<Carte> cartes;
 
     public Defausse(LinkedList<Carte> cartes) {

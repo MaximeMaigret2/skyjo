@@ -1,6 +1,6 @@
 package com.zenika.skyjo.domain;
 
-import com.zenika.skyjo.domain.exceptions.NombreDeJoueursImpossible;
+import com.zenika.skyjo.domain.exceptions.NombreDeJoueursImpossibleException;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class SkyjoAction {
 
     public Manche preparerUneManche(@NotNull List<String> joueurs) {
         if (joueurs.size() < 2 || joueurs.size() > 8) {
-            throw new NombreDeJoueursImpossible();
+            throw new NombreDeJoueursImpossibleException();
         }
         // Mise en place
         // Formez une pioche avec l'ensemble des cartes
@@ -56,35 +56,51 @@ public class SkyjoAction {
                 .toList();
     }
 
-    public Manche unJoueurPiochePile(Manche manche, String nomJoueur) {
+    public Manche piocherPile(Manche manche, String nomJoueur) {
+        // Les éléments de mon jeu
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Carte cartePioche = tirerUneCarteDeLaPioche(manche);
+        Pioche pioche = manche.getPioche();
+        // Le joueur interagit
+        Carte cartePioche = pioche.tirerUneCarte();
         plateau.prendreUneCarteEnMain(cartePioche);
         manche.verifierEtat();
         return manche;
     }
 
-    public Manche unJoueurPiocheDefausse(Manche manche, String nomJoueur) {
+    public Manche piocherDefausse(Manche manche, String nomJoueur) {
+        // Les éléments de mon jeu
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Carte carteDefausse = tirerUneCarteDeLaDefausse(manche);
+        Defausse defausse = manche.getDefausse();
+        // Le joueur interagit
+        Carte carteDefausse = defausse.tirerUneCarte();
         plateau.prendreUneCarteEnMain(carteDefausse);
         manche.verifierEtat();
         return manche;
     }
 
-    public Manche unJoueurJoueEn(Position position, Manche manche, String nomJoueur) {
+    public Manche echangerCarteEnMainDuJoueurEtDefausser(Position position, Manche manche, String nomJoueur) {
+        // Les éléments de mon jeu
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Carte carteAMettreDansLaDefausse = plateau.poserCarteEnMainEn(position);
-        manche.defausser(carteAMettreDansLaDefausse);
+        Defausse defausse = manche.getDefausse();
+        // Le joueur interagit
+        // Echange de carte sur plateau
+        Carte cartePlateauAMettreDansLaDefausse = plateau.echangerCarteEnMainAvec(position);
+        // et mise à la défausse
+        defausse.ajouterALaDefausse(cartePlateauAMettreDansLaDefausse);
         manche.verifierEtat();
         return manche;
     }
 
-    private Carte tirerUneCarteDeLaPioche(Manche manche) {
-        return manche.getPioche().tirerUneCarte();
-    }
-
-    private Carte tirerUneCarteDeLaDefausse(Manche manche) {
-        return manche.getDefausse().tirerUneCarte();
+    public Manche defausserCarteEnMainDuJoueurEtReveler(Position position, Manche manche, String nomJoueur) {
+        // Les éléments de mon jeu
+        Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
+        Defausse defausse = manche.getDefausse();
+        // Defausser la carte en main du joueur
+        Carte carteEnMainAMettreDansLaDefausse = plateau.restituerCarteEnMain();
+        defausse.ajouterALaDefausse(carteEnMainAMettreDansLaDefausse);
+        // Et reveler la position souhaité par le joueur
+        plateau.carteEnPosition(position).retournerFaceVisible();
+        manche.verifierEtat();
+        return manche;
     }
 }

@@ -33,7 +33,7 @@ public class DemarrerControleur {
 
     @PostMapping("/nouvellePartie")
     public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@Valid @RequestBody ListeDesJoueursDto listeDesJoueursDto) {
-        Manche manche = deroulement.preparerUneManche(listeDesJoueursDto.joueurs());
+        Manche manche = deroulement.desJoueursPreparerUneManche(listeDesJoueursDto.joueurs());
         return ResponseEntity.created(URI.create("/manches/" + manche.getId())).body(MancheDto.fromDomain(manche));
     }
 
@@ -42,7 +42,7 @@ public class DemarrerControleur {
                                                          @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                          @Valid @RequestBody DeuxPositionsDto deuxPositionsDto) {
 
-        Manche manche = deroulement.engagerUnJoueurSurUneManche(mancheId, joueur, deuxPositionsDto.positions());
+        Manche manche = deroulement.unJoueurEngageUneManche(mancheId, joueur, deuxPositionsDto.positions());
         return ResponseEntity.ok().body(MancheDto.fromDomain(manche));
     }
 }

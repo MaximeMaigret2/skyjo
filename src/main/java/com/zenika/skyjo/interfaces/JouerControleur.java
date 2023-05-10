@@ -6,7 +6,6 @@ import com.zenika.skyjo.domain.Position;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,23 +32,16 @@ public class JouerControleur {
     public ResponseEntity<MancheDto> remplacerCarteEnMainSurLePlateau(@PathVariable String mancheId,
                                                                       @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                                       @Valid @RequestBody Position position) {
-        Manche manche = deroulement.unJoueurJoueEn(position, mancheId, joueur);
+        Manche manche = deroulement.unJoueurEchangeCarteEnMainEtDefausse(position, mancheId, joueur);
         return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }
 
     @PostMapping("/{mancheId}/jouer/reveler")
-    public ResponseEntity<MancheDto> revelerCartePlateau(@PathVariable String mancheId,
+    public ResponseEntity<MancheDto> defausserCarteEnMainRevelerCartePlateau(@PathVariable String mancheId,
                                                          @NotBlank @RequestHeader(JOUEUR) String joueur,
                                                          @Valid @RequestBody Position position) {
 
-        throw new NotImplementedException();
-    }
-
-    @PostMapping("/{mancheId}/jouer/deposer")
-    public ResponseEntity<MancheDto> deposerSurLaDefausse(@PathVariable String mancheId,
-                                                          @NotBlank @RequestHeader(JOUEUR) String joueur,
-                                                          @Valid @RequestBody Position coup) {
-        // ??? c'est un impact de quand on révèle ça nan ?
-        throw new NotImplementedException();
+        Manche manche = deroulement.unJoueurDefausseCarteEnMainEtRevele(position, mancheId, joueur);
+        return ResponseEntity.ok(MancheDto.fromDomain(manche));
     }
 }

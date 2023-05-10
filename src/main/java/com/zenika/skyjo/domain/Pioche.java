@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class Pioche {
-
     private final LinkedList<Carte> cartes;
 
     public Pioche(LinkedList<Carte> cartes) {

@@ -1,8 +1,10 @@
 package com.zenika.skyjo.domain;
 
+import com.zenika.skyjo.domain.exceptions.CarteEnMainInexistanteEception;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Plateau {
@@ -70,10 +72,20 @@ public class Plateau {
                 .allMatch(carte -> Statut.VISIBLE.equals(carte.getStatut()));
     }
 
-    public Carte poserCarteEnMainEn(Position position) {
-        Carte carteRemplacee = cartes[position.colonne()][position.ligne()];
-        cartes[position.colonne()][position.ligne()] = carteEnMain;
-        carteEnMain = null;
+    public Carte echangerCarteEnMainAvec(Position position) {
+        // Switch des cartes
+        Carte carteRemplacee = carteEnPosition(position);
+        cartes[position.ligne()][position.colonne()] = restituerCarteEnMain();
         return carteRemplacee;
+    }
+
+    public Carte restituerCarteEnMain() {
+        if (Objects.isNull(carteEnMain)) {
+            throw new CarteEnMainInexistanteEception();
+        }
+        Carte carte = carteEnMain;
+        // reset carte en main
+        carteEnMain = null;
+        return carte;
     }
 }

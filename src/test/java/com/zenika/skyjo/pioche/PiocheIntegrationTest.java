@@ -1,5 +1,6 @@
 package com.zenika.skyjo.pioche;
 
+import com.zenika.skyjo.common.AffichageManche;
 import com.zenika.skyjo.common.IntegrationTest;
 import com.zenika.skyjo.common.MancheTestBuilder;
 import com.zenika.skyjo.domain.Carte;
@@ -16,6 +17,7 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 
 @IntegrationTest
 class PiocheIntegrationTest {
+    // FiXME add Defausse pioche et cas non passant
 
     @Autowired
     private WebTestClient webTestClient;
@@ -29,6 +31,7 @@ class PiocheIntegrationTest {
         Manche manche = MancheTestBuilder.nouvelleMancheDeTest("1")
                 .pourJoueur("Awa")
                 .avecPiocheFixee(List.of(Carte.uneCarteDe(Valeur.DEUX)))
+                .avecDefausseFixee(Carte.uneCarteDe(Valeur.TROIS))
                 .avecPlateauQuelconqueCache()
                 .build();
 
@@ -42,7 +45,8 @@ class PiocheIntegrationTest {
                 .expectBody()
                 .jsonPath("$.plateaux[0].joueur").isEqualTo("Awa")
                 .jsonPath("$.plateaux[0].carteEnMain.valeur").isEqualTo("DEUX")
-                .jsonPath("$.plateaux[0].carteEnMain.statut").isEqualTo("VISIBLE");
+                .jsonPath("$.plateaux[0].carteEnMain.statut").isEqualTo("VISIBLE")
+                .consumeWith(AffichageManche.convertirEtAfficher());
     }
 
 }

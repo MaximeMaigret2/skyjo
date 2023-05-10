@@ -20,37 +20,40 @@ public class SkyjoOrchestration {
         this.skyjoAction = skyjoAction;
     }
 
-    public Manche engagerUnJoueurSurUneManche(String mancheId, String joueur, List<Position> positions) {
+    public Manche unJoueurEngageUneManche(String mancheId, String joueur, List<Position> positions) {
         Manche manche = recupererLaManche(mancheId);
         manche = skyjoAction.engagerUnJoueurSurUneManche(manche, joueur, positions);
-        mancheRepository.save(manche);
-        return manche;
+        return mancheRepository.save(manche);
     }
 
-    public Manche unJoueurJoueEn(Position position, String mancheId, String joueur) {
+    public Manche unJoueurEchangeCarteEnMainEtDefausse(Position position, String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoAction.unJoueurJoueEn(position, manche, joueur);
-        mancheRepository.save(manche);
-        return manche;
+        manche = skyjoAction.echangerCarteEnMainDuJoueurEtDefausser(position, manche, joueur);
+        return mancheRepository.save(manche);
     }
 
-    public Manche preparerUneManche(List<String> joueurs) {
+
+    public Manche unJoueurDefausseCarteEnMainEtRevele(Position position, String mancheId, String joueur) {
+        Manche manche = recupererLaManche(mancheId);
+        manche = skyjoAction.defausserCarteEnMainDuJoueurEtReveler(position, manche, joueur);
+        return mancheRepository.save(manche);
+    }
+
+    public Manche desJoueursPreparerUneManche(List<String> joueurs) {
         Manche manche = skyjoAction.preparerUneManche(joueurs);
-        mancheRepository.save(manche);
-        return manche;
+        return mancheRepository.save(manche);
     }
 
     public Manche unJoueurPiochePile(String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoAction.unJoueurPiochePile(manche, joueur);
-        mancheRepository.save(manche);
-        return manche;
+        manche = skyjoAction.piocherPile(manche, joueur);
+        return mancheRepository.save(manche);
     }
 
     public Manche unJoueurPiocheDefausse(String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        mancheRepository.save(manche);
-        return manche;
+        manche = skyjoAction.piocherDefausse(manche, joueur);
+        return mancheRepository.save(manche);
     }
 
     public Manche recupererLaManche(String mancheId) {
