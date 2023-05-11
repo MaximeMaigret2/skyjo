@@ -1,9 +1,6 @@
 package com.zenika.skyjo.application;
 
-import com.zenika.skyjo.domain.Manche;
-import com.zenika.skyjo.domain.MancheRepository;
-import com.zenika.skyjo.domain.Position;
-import com.zenika.skyjo.domain.SkyjoAction;
+import com.zenika.skyjo.domain.*;
 import com.zenika.skyjo.domain.exceptions.MancheInexistanteException;
 import org.springframework.stereotype.Service;
 
@@ -28,14 +25,16 @@ public class SkyjoOrchestration {
 
     public Manche unJoueurEchangeCarteEnMainEtDefausse(Position position, String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoAction.echangerCarteEnMainDuJoueurEtDefausser(position, manche, joueur);
+        Carte carteADefausser = skyjoAction.echangerCarteEnMainDuJoueur(position, manche, joueur);
+        manche = skyjoAction.defausser(manche, carteADefausser);
         return mancheRepository.save(manche);
     }
 
 
     public Manche unJoueurDefausseCarteEnMainEtRevele(Position position, String mancheId, String joueur) {
         Manche manche = recupererLaManche(mancheId);
-        manche = skyjoAction.defausserCarteEnMainDuJoueurEtReveler(position, manche, joueur);
+        Carte carteADefausser = skyjoAction.revelerEtRestituerCarteEnMain(position, manche, joueur);
+        manche = skyjoAction.defausser(manche, carteADefausser);
         return mancheRepository.save(manche);
     }
 

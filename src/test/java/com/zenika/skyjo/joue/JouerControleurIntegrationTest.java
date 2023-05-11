@@ -17,7 +17,6 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 
 @IntegrationTest
 class JouerControleurIntegrationTest {
-    // FiXME add defausserCarteEnMainRevelerCartePlateau pioche et cas non passant
 
     @Autowired
     private WebTestClient webTestClient;

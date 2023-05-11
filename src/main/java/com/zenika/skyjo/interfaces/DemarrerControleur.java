@@ -2,9 +2,9 @@ package com.zenika.skyjo.interfaces;
 
 import com.zenika.skyjo.application.SkyjoOrchestration;
 import com.zenika.skyjo.domain.Manche;
+import com.zenika.skyjo.interfaces.dto.DeuxPositionsDto;
 import com.zenika.skyjo.interfaces.dto.ListeDesJoueursDto;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
-import com.zenika.skyjo.interfaces.dto.DeuxPositionsDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +31,7 @@ public class DemarrerControleur {
         this.deroulement = deroulement;
     }
 
-    @PostMapping("/nouvellePartie")
+    @PostMapping
     public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@Valid @RequestBody ListeDesJoueursDto listeDesJoueursDto) {
         Manche manche = deroulement.desJoueursPreparerUneManche(listeDesJoueursDto.joueurs());
         return ResponseEntity.created(URI.create("/manches/" + manche.getId())).body(MancheDto.fromDomain(manche));

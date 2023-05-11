@@ -1,4 +1,4 @@
-package com.zenika.skyjo.pioche;
+package com.zenika.skyjo.joue.pioche;
 
 import com.zenika.skyjo.common.AffichageManche;
 import com.zenika.skyjo.common.IntegrationTest;
@@ -17,7 +17,6 @@ import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 
 @IntegrationTest
 class PiocheIntegrationTest {
-    // FiXME add Defausse pioche et cas non passant
 
     @Autowired
     private WebTestClient webTestClient;

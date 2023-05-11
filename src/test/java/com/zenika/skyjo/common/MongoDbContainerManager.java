@@ -38,7 +38,6 @@ public class MongoDbContainerManager implements TestExecutionListener, Applicati
                 .withClasspathResourceMapping("mongodb/mongo-init-user.js",
                         "/docker-entrypoint-initdb.d/mongo-init-user.js",
                         BindMode.READ_ONLY)
-                .withStartupAttempts(10)
                 // https://www.testcontainers.org/features/reuse/
                 .withReuse(true);
         // Demarrer

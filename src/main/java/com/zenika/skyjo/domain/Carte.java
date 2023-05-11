@@ -1,5 +1,7 @@
 package com.zenika.skyjo.domain;
 
+import java.util.Objects;
+
 public class Carte {
     private final Valeur valeur;
     private Statut statut;

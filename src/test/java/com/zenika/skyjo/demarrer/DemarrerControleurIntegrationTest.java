@@ -35,7 +35,7 @@ class DemarrerControleurIntegrationTest {
         // Quand
         webTestClient.post()
                 // je demande la création d'une nouvelle partie
-                .uri("/manches/nouvellePartie")
+                .uri("/manches")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(jsonJoueurs)
                 .exchange()
@@ -68,7 +68,7 @@ class DemarrerControleurIntegrationTest {
         // Quand
         webTestClient.post()
                 // je demande la création d'une nouvelle partie
-                .uri("/manches/nouvellePartie")
+                .uri("/manches")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(jsonJoueurs)
                 .exchange()

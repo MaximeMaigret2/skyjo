@@ -20,7 +20,7 @@ public class Defausse {
             // Cela ne devrait pas arriver
             throw new DefausseVideException();
         }
-        return cartes.removeLast();
+        return cartes.removeFirst();
     }
 
     public static Defausse construireLaDefausse(Carte carte) {

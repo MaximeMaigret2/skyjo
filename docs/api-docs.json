@@ -1,0 +1,450 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/manches": {
+      "post": {
+        "tags": [
+          "demarrer-controleur"
+        ],
+        "operationId": "demarrerUneNouvellePartie",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListeDesJoueursDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manches/{mancheId}/piocher/pile": {
+      "post": {
+        "tags": [
+          "piocher-controleur"
+        ],
+        "operationId": "piochePile",
+        "parameters": [
+          {
+            "name": "mancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "joueur",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manches/{mancheId}/piocher/defausse": {
+      "post": {
+        "tags": [
+          "piocher-controleur"
+        ],
+        "operationId": "piocheDefausse",
+        "parameters": [
+          {
+            "name": "mancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "joueur",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manches/{mancheId}/jouer/reveler": {
+      "post": {
+        "tags": [
+          "jouer-controleur"
+        ],
+        "operationId": "defausserCarteEnMainRevelerCartePlateau",
+        "parameters": [
+          {
+            "name": "mancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "joueur",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Position"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manches/{mancheId}/jouer/remplacer": {
+      "post": {
+        "tags": [
+          "jouer-controleur"
+        ],
+        "operationId": "remplacerCarteEnMainSurLePlateau",
+        "parameters": [
+          {
+            "name": "mancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "joueur",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Position"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manches/{mancheId}/engager": {
+      "post": {
+        "tags": [
+          "demarrer-controleur"
+        ],
+        "operationId": "retournerDeuxCartes",
+        "parameters": [
+          {
+            "name": "mancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "joueur",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeuxPositionsDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/manches/{mancheId}": {
+      "get": {
+        "tags": [
+          "consulter-controleur"
+        ],
+        "operationId": "demarrerUneNouvellePartie_1",
+        "parameters": [
+          {
+            "name": "mancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/MancheDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ListeDesJoueursDto": {
+        "required": [
+          "joueurs"
+        ],
+        "type": "object",
+        "properties": {
+          "joueurs": {
+            "maxItems": 8,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CarteDto": {
+        "type": "object",
+        "properties": {
+          "valeur": {
+            "type": "string",
+            "enum": [
+              "DOUZE",
+              "ONZE",
+              "DIX",
+              "NEUF",
+              "HUIT",
+              "SEPT",
+              "SIX",
+              "CINQ",
+              "QUATRE",
+              "TROIS",
+              "DEUX",
+              "UN",
+              "ZERO",
+              "MOINS_UN",
+              "MOINS_DEUX"
+            ]
+          },
+          "statut": {
+            "type": "string",
+            "enum": [
+              "CACHE",
+              "VISIBLE"
+            ]
+          }
+        }
+      },
+      "DefausseDto": {
+        "type": "object",
+        "properties": {
+          "cartes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarteDto"
+            }
+          }
+        }
+      },
+      "MancheDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "pioche": {
+            "$ref": "#/components/schemas/PiocheDto"
+          },
+          "defausse": {
+            "$ref": "#/components/schemas/DefausseDto"
+          },
+          "plateaux": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlateauDto"
+            }
+          },
+          "etat": {
+            "type": "string",
+            "enum": [
+              "INITIALISATION",
+              "ENCOURS",
+              "FINIE"
+            ]
+          }
+        }
+      },
+      "PiocheDto": {
+        "type": "object",
+        "properties": {
+          "cartes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarteDto"
+            }
+          }
+        }
+      },
+      "PlateauDto": {
+        "type": "object",
+        "properties": {
+          "cartes": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CarteDto"
+              }
+            }
+          },
+          "carteEnMain": {
+            "$ref": "#/components/schemas/CarteDto"
+          },
+          "joueur": {
+            "type": "string"
+          }
+        }
+      },
+      "Position": {
+        "type": "object",
+        "properties": {
+          "colonne": {
+            "maximum": 3,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ligne": {
+            "maximum": 2,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DeuxPositionsDto": {
+        "required": [
+          "positions"
+        ],
+        "type": "object",
+        "properties": {
+          "positions": {
+            "maxItems": 2,
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Position"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -78,29 +78,21 @@ public class SkyjoAction {
         return manche;
     }
 
-    public Manche echangerCarteEnMainDuJoueurEtDefausser(Position position, Manche manche, String nomJoueur) {
-        // Les éléments de mon jeu
+    public Carte echangerCarteEnMainDuJoueur(Position position, Manche manche, String nomJoueur) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
+        return plateau.echangerCarteEnMainAvec(position);
+    }
+
+    public Manche defausser(Manche manche, Carte carte) {
         Defausse defausse = manche.getDefausse();
-        // Le joueur interagit
-        // Echange de carte sur plateau
-        Carte cartePlateauAMettreDansLaDefausse = plateau.echangerCarteEnMainAvec(position);
-        // et mise à la défausse
-        defausse.ajouterALaDefausse(cartePlateauAMettreDansLaDefausse);
+        defausse.ajouterALaDefausse(carte);
         manche.verifierEtat();
         return manche;
     }
 
-    public Manche defausserCarteEnMainDuJoueurEtReveler(Position position, Manche manche, String nomJoueur) {
-        // Les éléments de mon jeu
+    public Carte revelerEtRestituerCarteEnMain(Position position, Manche manche, String nomJoueur) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Defausse defausse = manche.getDefausse();
-        // Defausser la carte en main du joueur
-        Carte carteEnMainAMettreDansLaDefausse = plateau.restituerCarteEnMain();
-        defausse.ajouterALaDefausse(carteEnMainAMettreDansLaDefausse);
-        // Et reveler la position souhaitée par le joueur
         plateau.carteEnPosition(position).retournerFaceVisible();
-        manche.verifierEtat();
-        return manche;
+        return plateau.restituerCarteEnMain();
     }
 }

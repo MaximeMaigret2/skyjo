@@ -1,4 +1,4 @@
-package com.zenika.skyjo.pioche;
+package com.zenika.skyjo.joue.pioche;
 
 import com.zenika.skyjo.domain.Carte;
 import com.zenika.skyjo.domain.Pioche;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.zenika.skyjo.pioche.PiocheTest.CarteAssert.assertThat;
+import static com.zenika.skyjo.joue.pioche.PiocheTest.CarteAssert.assertThat;
 
 class PiocheTest {
 
