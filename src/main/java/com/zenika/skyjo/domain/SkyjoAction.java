@@ -27,41 +27,41 @@ public class SkyjoAction {
         }
         // Mise en place
         // Formez une pioche avec l'ensemble des cartes
-        Pioche pioche = Pioche.construireLaPioche();
+        Pile pile = Pile.construireLaPioche();
         // Chaque joueur reçoit 12 cartes face cachée
-        List<Plateau> plateauxJoueurs = distribuerLesCartesAuxJoueurs(joueurs, pioche);
+        List<Plateau> plateauxJoueurs = distribuerLesCartesAuxJoueurs(joueurs, pile);
         // Révélez la première carte de la pioche, elle constitue le début de la pile de défausse
-        Defausse defausse = retournerPremiereCarteDeLaDefausse(pioche);
+        Defausse defausse = retournerPremiereCarteDeLaDefausse(pile);
         // La manche est en cours d'initialisation, en attente
-        return initialiserLaManche(pioche, plateauxJoueurs, defausse);
+        return initialiserLaManche(pile, plateauxJoueurs, defausse);
     }
 
-    private Manche initialiserLaManche(Pioche pioche, List<Plateau> plateauxJoueurs, Defausse defausse) {
+    private Manche initialiserLaManche(Pile pile, List<Plateau> plateauxJoueurs, Defausse defausse) {
         return Manche.MancheBuilder.nouvelleManche()
                 .avecDefausse(defausse)
-                .avecPioche(pioche)
+                .avecPioche(pile)
                 .avecPlateau(plateauxJoueurs)
                 .build();
     }
 
-    private Defausse retournerPremiereCarteDeLaDefausse(Pioche pioche) {
-        Carte premiereCarteDeLaDefausse = pioche.tirerUneCarte();
+    private Defausse retournerPremiereCarteDeLaDefausse(Pile pile) {
+        Carte premiereCarteDeLaDefausse = pile.tirerUneCarte();
         premiereCarteDeLaDefausse.retournerFaceVisible();
         return Defausse.construireLaDefausse(premiereCarteDeLaDefausse);
     }
 
-    private List<Plateau> distribuerLesCartesAuxJoueurs(List<String> joueurs, Pioche pioche) {
+    private List<Plateau> distribuerLesCartesAuxJoueurs(List<String> joueurs, Pile pile) {
         return joueurs.stream()
-                .map(joueur -> Plateau.creerPlateauPour(joueur, pioche))
+                .map(joueur -> Plateau.creerPlateauPour(joueur, pile))
                 .toList();
     }
 
     public Manche piocherPile(Manche manche, String nomJoueur) {
         // Les éléments de mon jeu
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
-        Pioche pioche = manche.getPioche();
+        Pile pile = manche.getPioche();
         // Le joueur interagit
-        Carte cartePioche = pioche.tirerUneCarte();
+        Carte cartePioche = pile.tirerUneCarte();
         plateau.prendreUneCarteEnMain(cartePioche);
         manche.verifierEtat();
         return manche;

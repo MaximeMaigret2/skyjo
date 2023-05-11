@@ -18,7 +18,7 @@ public record MancheDto(String id, PiocheDto pioche, DefausseDto defausse, List<
     public String toString() {
         String manche = "\n";
         manche += "ID : " + id + "\n";
-        manche += "Défausse : " + defausse.cartes().getLast().toString() + "\n";
+        manche += "Défausse : " + defausse.cartes().getFirst().toString() + "\n";
         manche += "Etat : " + etat + "\n";
         manche += plateaux.stream()
                 .map(plateau -> "Joueur : " + plateau.joueur() + "\n" + "Carte en main : " + plateau.carteEnMain() + "\n" + AsciiTable.getTable(plateau.cartes())).collect(Collectors.joining("\n"));

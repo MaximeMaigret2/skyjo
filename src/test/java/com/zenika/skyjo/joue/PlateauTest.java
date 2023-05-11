@@ -1,7 +1,7 @@
 package com.zenika.skyjo.joue;
 
 import com.zenika.skyjo.domain.Carte;
-import com.zenika.skyjo.domain.Pioche;
+import com.zenika.skyjo.domain.Pile;
 import com.zenika.skyjo.domain.Plateau;
 import com.zenika.skyjo.domain.Valeur;
 import com.zenika.skyjo.domain.exceptions.PiocheVideException;
@@ -17,8 +17,8 @@ class PlateauTest {
     @Test
     void on_doit_pouvoir_initialiser_un_plateau() throws PiocheVideException {
 
-        Pioche pioche = mock(Pioche.class);
-        when(pioche.tirerUneCarte()).thenReturn(uneCarteDe(Valeur.ZERO))
+        Pile pile = mock(Pile.class);
+        when(pile.tirerUneCarte()).thenReturn(uneCarteDe(Valeur.ZERO))
                 .thenReturn(uneCarteDe(Valeur.UN))
                 .thenReturn(uneCarteDe(Valeur.DEUX))
                 .thenReturn(uneCarteDe(Valeur.TROIS))
@@ -31,7 +31,7 @@ class PlateauTest {
                 .thenReturn(uneCarteDe(Valeur.DIX))
                 .thenReturn(uneCarteDe(Valeur.ONZE));
 
-        Plateau plateau = Plateau.creerPlateauPour("Toto", pioche);
+        Plateau plateau = Plateau.creerPlateauPour("Toto", pile);
 
         Carte[][] cartes = plateau.getCartes();
 

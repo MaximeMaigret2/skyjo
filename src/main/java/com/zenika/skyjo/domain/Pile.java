@@ -6,10 +6,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class Pioche {
+public class Pile {
     private final LinkedList<Carte> cartes;
 
-    public Pioche(LinkedList<Carte> cartes) {
+    public Pile(LinkedList<Carte> cartes) {
         this.cartes = cartes;
     }
 
@@ -24,37 +24,37 @@ public class Pioche {
         return cartes.removeFirst();
     }
 
-    public static Pioche construireLaPioche() {
-        Pioche pioche = new Pioche(new LinkedList<>());
+    public static Pile construireLaPioche() {
+        Pile pile = new Pile(new LinkedList<>());
         // Ajout de 5 cartes d'une valeur de -2
-        ajoutDe5CartesValeurMoinsDeux(pioche);
+        ajoutDe5CartesValeurMoinsDeux(pile);
         // Ajout de 15 cartes d'une valeur de 0
-        ajoutDe5CartesValeurZero(pioche);
+        ajoutDe5CartesValeurZero(pile);
         // Ajout de 10 cartes d'une valeur de -1 a 12
-        ajoutDe10CartesDeChaqueAutreValeur(pioche);
+        ajoutDe10CartesDeChaqueAutreValeur(pile);
         // Mélanger
-        Collections.shuffle(pioche.cartes);
-        return pioche;
+        Collections.shuffle(pile.cartes);
+        return pile;
     }
 
-    private static void ajoutDe10CartesDeChaqueAutreValeur(Pioche pioche) {
+    private static void ajoutDe10CartesDeChaqueAutreValeur(Pile pile) {
         IntStream.range(0, 10).forEach(indexDix -> {
             // Ajout de -1
-            pioche.cartes.add(Carte.uneCarteDe(Valeur.MOINS_UN));
+            pile.cartes.add(Carte.uneCarteDe(Valeur.MOINS_UN));
             // Ajout de 1,2,3,4,5,6,7,8,9,10,11,12
-            pioche.cartes.addAll(IntStream.range(1, 13).mapToObj(compteur -> Carte.uneCarteDe(Valeur.valeur(compteur))).toList());
+            pile.cartes.addAll(IntStream.range(1, 13).mapToObj(compteur -> Carte.uneCarteDe(Valeur.valeur(compteur))).toList());
         });
     }
 
-    private static void ajoutDe5CartesValeurZero(Pioche pioche) {
-        pioche.cartes.addAll(IntStream.range(0, 15)
+    private static void ajoutDe5CartesValeurZero(Pile pile) {
+        pile.cartes.addAll(IntStream.range(0, 15)
                 .mapToObj(index ->
                         Carte.uneCarteDe(Valeur.ZERO)
                 ).toList());
     }
 
-    private static void ajoutDe5CartesValeurMoinsDeux(Pioche pioche) {
-        pioche.cartes.addAll(IntStream.range(0, 5)
+    private static void ajoutDe5CartesValeurMoinsDeux(Pile pile) {
+        pile.cartes.addAll(IntStream.range(0, 5)
                 .mapToObj(index ->
                         Carte.uneCarteDe(Valeur.MOINS_DEUX)
                 ).toList());

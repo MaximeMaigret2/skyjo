@@ -16,7 +16,7 @@ import java.util.List;
 import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
 
 @IntegrationTest
-class PiocheIntegrationTest {
+class PileIntegrationTest {
 
     @Autowired
     private WebTestClient webTestClient;

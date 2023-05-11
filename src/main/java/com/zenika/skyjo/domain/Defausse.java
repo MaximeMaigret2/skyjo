@@ -32,6 +32,8 @@ public class Defausse {
     }
 
     public void ajouterALaDefausse(Carte carteADefausser) {
+        // Forcer face visible
+        carteADefausser.retournerFaceVisible();
         cartes.addFirst(carteADefausser);
     }
 }

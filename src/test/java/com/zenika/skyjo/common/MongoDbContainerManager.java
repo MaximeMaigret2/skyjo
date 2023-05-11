@@ -26,7 +26,6 @@ import java.util.stream.Stream;
  * A {@link TestExecutionListener} to launch one {@link MongoDbContainerManager} for all integration tests.
  * <a href="https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/">Contrôler le cycle de vie</a>
  */
-@Sql
 public class MongoDbContainerManager implements TestExecutionListener, ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     private static final MongoDBContainer mongoDbContainer;
@@ -38,6 +37,7 @@ public class MongoDbContainerManager implements TestExecutionListener, Applicati
                 .withClasspathResourceMapping("mongodb/mongo-init-user.js",
                         "/docker-entrypoint-initdb.d/mongo-init-user.js",
                         BindMode.READ_ONLY)
+                .withStartupAttempts(5)
                 // https://www.testcontainers.org/features/reuse/
                 .withReuse(true);
         // Demarrer

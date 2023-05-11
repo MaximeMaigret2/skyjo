@@ -20,17 +20,17 @@ public class Plateau {
         this.joueur = joueur;
     }
 
-    public static Plateau creerPlateauPour(String joueur, Pioche pioche) {
-        Carte[][] cartes = concevoirTableauDeCartes(pioche);
+    public static Plateau creerPlateauPour(String joueur, Pile pile) {
+        Carte[][] cartes = concevoirTableauDeCartes(pile);
         return new Plateau(cartes, joueur);
     }
 
 
-    private static Carte[][] concevoirTableauDeCartes(Pioche pioche) {
+    private static Carte[][] concevoirTableauDeCartes(Pile pile) {
         Carte[][] cartes = new Carte[HAUTEUR][LARGEUR];
         IntStream.range(0, cartes.length).forEach(ligne ->
                 IntStream.range(0, cartes[ligne].length).forEach(colonne ->
-                        cartes[ligne][colonne] = pioche.tirerUneCarte())
+                        cartes[ligne][colonne] = pile.tirerUneCarte())
         );
         return cartes;
     }

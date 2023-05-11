@@ -12,17 +12,17 @@ import java.util.List;
 public class Manche {
     @Id
     private String id;
-    private Pioche pioche;
+    private Pile pile;
     private Defausse defausse;
     private List<Plateau> plateaux = new ArrayList<>();
     private Etat etat;
 
-    public Pioche getPioche() {
-        return pioche;
+    public Pile getPioche() {
+        return pile;
     }
 
-    public void setPioche(Pioche pioche) {
-        this.pioche = pioche;
+    public void setPioche(Pile pile) {
+        this.pile = pile;
     }
 
     public List<Plateau> getPlateaux() {
@@ -76,7 +76,7 @@ public class Manche {
     }
 
     public static class MancheBuilder{
-        private Pioche pioche;
+        private Pile pile;
         private Defausse defausse;
         private final List<Plateau> plateaux = new ArrayList<>();
 
@@ -84,8 +84,8 @@ public class Manche {
             return new MancheBuilder();
         }
 
-        public MancheBuilder avecPioche(Pioche pioche){
-            this.pioche = pioche;
+        public MancheBuilder avecPioche(Pile pile){
+            this.pile = pile;
             return this;
         }
 
@@ -102,7 +102,7 @@ public class Manche {
         public Manche build(){
             Manche manche = new Manche();
             manche.setDefausse(defausse);
-            manche.setPioche(pioche);
+            manche.setPioche(pile);
             manche.setPlateaux(plateaux);
             manche.verifierEtat();
             return manche;

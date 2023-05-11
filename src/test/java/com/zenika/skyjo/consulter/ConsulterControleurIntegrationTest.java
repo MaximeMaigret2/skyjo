@@ -71,3 +71,4 @@ public class ConsulterControleurIntegrationTest {
                 .expectStatus().isNotFound();
     }
 }
+

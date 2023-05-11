@@ -1,7 +1,7 @@
 package com.zenika.skyjo.joue.pioche;
 
 import com.zenika.skyjo.domain.Carte;
-import com.zenika.skyjo.domain.Pioche;
+import com.zenika.skyjo.domain.Pile;
 import com.zenika.skyjo.domain.Valeur;
 import com.zenika.skyjo.domain.exceptions.PiocheVideException;
 import org.assertj.core.api.ListAssert;
@@ -10,17 +10,17 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.zenika.skyjo.joue.pioche.PiocheTest.CarteAssert.assertThat;
+import static com.zenika.skyjo.joue.pioche.PileTest.CarteAssert.assertThat;
 
-class PiocheTest {
+class PileTest {
 
     @Test
     void doit_generer_toutes_les_cartes() {
-        Pioche pioche = Pioche.construireLaPioche();
+        Pile pile = Pile.construireLaPioche();
         List<Carte> toutesLesCartes = new ArrayList<>();
         try {
             while (true) {
-                toutesLesCartes.add(pioche.tirerUneCarte());
+                toutesLesCartes.add(pile.tirerUneCarte());
             }
         } catch (PiocheVideException e) {
             assertThat(toutesLesCartes).hasNumberOfValeurs(10, Valeur.CINQ);

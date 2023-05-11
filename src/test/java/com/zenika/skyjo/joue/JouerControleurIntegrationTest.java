@@ -3,10 +3,7 @@ package com.zenika.skyjo.joue;
 import com.zenika.skyjo.common.AffichageManche;
 import com.zenika.skyjo.common.IntegrationTest;
 import com.zenika.skyjo.common.MancheTestBuilder;
-import com.zenika.skyjo.domain.Carte;
-import com.zenika.skyjo.domain.Manche;
-import com.zenika.skyjo.domain.MancheRepository;
-import com.zenika.skyjo.domain.Valeur;
+import com.zenika.skyjo.domain.*;
 import com.zenika.skyjo.interfaces.dto.MancheDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static com.zenika.skyjo.interfaces.HeaderConstants.JOUEUR;
+import static org.hamcrest.Matchers.*;
 
 @IntegrationTest
 class JouerControleurIntegrationTest {
@@ -50,8 +48,14 @@ class JouerControleurIntegrationTest {
                 .bodyValue(positionDeLaCarteARemplacer)
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(MancheDto.class)
-                .consumeWith(mancheDto -> AffichageManche.afficherManche(mancheDto.getResponseBody()));
+                .expectBody()
+                .jsonPath("$.plateaux[0:].joueur").value(containsInAnyOrder("Awa"))
+                .jsonPath("$.plateaux[0:].cartes[*]..statut").value(hasSize(12))
+                .jsonPath("$.plateaux[0].cartes[2][3].valeur").value(is(Valeur.DEUX.toString()))
+                .jsonPath("$.plateaux[0].cartes[2][3].statut").value(is(Statut.VISIBLE.toString()))
+                .jsonPath("$.defausse.cartes[0].statut").value(is(Statut.VISIBLE.toString()))
+                .jsonPath("$.defausse.cartes[0].valeur").value(is(Valeur.ZERO.toString()))
+                .consumeWith(AffichageManche.convertirEtAfficher());
     }
 
     @Test

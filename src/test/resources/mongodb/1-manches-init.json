@@ -15,7 +15,7 @@
         ]
       },
       "etat": "INITIALISATION",
-      "pioche": {
+      "pile": {
         "cartes": [
           {
             "valeur": "SIX",

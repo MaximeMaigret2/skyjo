@@ -15,7 +15,7 @@
         ]
       },
       "etat": "INITIALISATION",
-      "pioche": {
+      "pile": {
         "cartes": [
           {
             "valeur": "NEUF",
@@ -654,7 +654,7 @@
         ]
       },
       "etat": "INITIALISATION",
-      "pioche": {
+      "pile": {
         "cartes": [
           {
             "valeur": "DEUX",

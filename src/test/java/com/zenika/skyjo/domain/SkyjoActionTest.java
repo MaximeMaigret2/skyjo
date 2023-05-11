@@ -20,14 +20,14 @@ class SkyjoActionTest {
 
         Carte carteAPiocher = Carte.uneCarteDe(Valeur.MOINS_DEUX);
         List<Carte> cartes = List.of(carteAPiocher);
-        Pioche pioche = new Pioche(new LinkedList<>(cartes));
+        Pile pile = new Pile(new LinkedList<>(cartes));
 
         when(mancheMock.recupererLePLateauDuJoueur(anyString())).thenReturn(plateauMock);
-        when(mancheMock.getPioche()).thenReturn(pioche);
+        when(mancheMock.getPioche()).thenReturn(pile);
 
         instance.piocherPile(mancheMock, "batmax");
         
-        assertThat(pioche.getCartes()).isEmpty();
+        assertThat(pile.getCartes()).isEmpty();
         verify(plateauMock).prendreUneCarteEnMain(carteAPiocher);
     }
 
