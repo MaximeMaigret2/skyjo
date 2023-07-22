@@ -1,5 +1,7 @@
 package com.zenika.skyjo.domain;
 
+import com.zenika.skyjo.domain.pile.Pile;
+import com.zenika.skyjo.domain.pile.PileFactoryTestContext;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
@@ -11,7 +13,7 @@ import static org.mockito.Mockito.*;
 class SkyjoActionTest {
 
 
-    private final SkyjoAction instance = new SkyjoAction();
+    private final SkyjoAction instance = new SkyjoAction(null);
 
     @Test
     void doit_piocher_pile_et_prendre_en_main(){
@@ -20,7 +22,7 @@ class SkyjoActionTest {
 
         Carte carteAPiocher = Carte.uneCarteDe(Valeur.MOINS_DEUX);
         List<Carte> cartes = List.of(carteAPiocher);
-        Pile pile = new Pile(new LinkedList<>(cartes));
+        Pile pile = PileFactoryTestContext.construireLaPiocheTestContext(new LinkedList<>(cartes));
 
         when(mancheMock.recupererLePLateauDuJoueur(anyString())).thenReturn(plateauMock);
         when(mancheMock.getPioche()).thenReturn(pile);

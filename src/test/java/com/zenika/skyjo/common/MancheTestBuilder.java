@@ -3,9 +3,10 @@ package com.zenika.skyjo.common;
 import com.zenika.skyjo.domain.Carte;
 import com.zenika.skyjo.domain.Defausse;
 import com.zenika.skyjo.domain.Manche;
-import com.zenika.skyjo.domain.Pile;
+import com.zenika.skyjo.domain.pile.Pile;
 import com.zenika.skyjo.domain.Plateau;
 import com.zenika.skyjo.domain.Valeur;
+import com.zenika.skyjo.domain.pile.PileFactoryTestContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -79,7 +80,7 @@ public class MancheTestBuilder extends Manche.MancheBuilder {
         LinkedList<Carte> toutesLesCartes = new LinkedList<>();
         toutesLesCartes.addAll(cartesPlateau);
         toutesLesCartes.addAll(cartesPioche);
-        Pile pile = new Pile(toutesLesCartes);
+        Pile pile = PileFactoryTestContext.construireLaPiocheTestContext(toutesLesCartes);
 
         Manche manche = new Manche();
         manche.setId(id);

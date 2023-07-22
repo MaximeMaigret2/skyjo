@@ -1,6 +1,7 @@
 package com.zenika.skyjo.domain;
 
 import com.zenika.skyjo.domain.exceptions.JoueurInexistantException;
+import com.zenika.skyjo.domain.pile.Pile;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

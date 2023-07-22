@@ -1,6 +1,7 @@
 package com.zenika.skyjo.domain;
 
 import com.zenika.skyjo.domain.exceptions.CarteEnMainInexistanteEception;
+import com.zenika.skyjo.domain.pile.Pile;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Arrays;

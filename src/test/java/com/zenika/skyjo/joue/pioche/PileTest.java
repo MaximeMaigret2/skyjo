@@ -1,9 +1,11 @@
 package com.zenika.skyjo.joue.pioche;
 
 import com.zenika.skyjo.domain.Carte;
-import com.zenika.skyjo.domain.Pile;
 import com.zenika.skyjo.domain.Valeur;
 import com.zenika.skyjo.domain.exceptions.PiocheVideException;
+import com.zenika.skyjo.domain.pile.CartesAUtiliser;
+import com.zenika.skyjo.domain.pile.Pile;
+import com.zenika.skyjo.domain.pile.PileFactory;
 import org.assertj.core.api.ListAssert;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +18,14 @@ class PileTest {
 
     @Test
     void doit_generer_toutes_les_cartes() {
-        Pile pile = Pile.construireLaPioche();
+
+        List<CartesAUtiliser> cartesAUtilisers = List.of(
+                new CartesAUtiliser(Valeur.CINQ, 10),
+                new CartesAUtiliser(Valeur.ZERO, 15),
+                new CartesAUtiliser(Valeur.MOINS_DEUX, 5)
+        );
+
+        Pile pile = PileFactory.construireLaPioche(cartesAUtilisers);
         List<Carte> toutesLesCartes = new ArrayList<>();
         try {
             while (true) {
@@ -24,7 +33,6 @@ class PileTest {
             }
         } catch (PiocheVideException e) {
             assertThat(toutesLesCartes).hasNumberOfValeurs(10, Valeur.CINQ);
-            assertThat(toutesLesCartes).hasNumberOfValeurs(10, Valeur.MOINS_UN);
             assertThat(toutesLesCartes).hasNumberOfValeurs(15, Valeur.ZERO);
             assertThat(toutesLesCartes).hasNumberOfValeurs(5, Valeur.MOINS_DEUX);
         }

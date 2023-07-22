@@ -1,7 +1,7 @@
 package com.zenika.skyjo.joue;
 
 import com.zenika.skyjo.domain.Carte;
-import com.zenika.skyjo.domain.Pile;
+import com.zenika.skyjo.domain.pile.Pile;
 import com.zenika.skyjo.domain.Plateau;
 import com.zenika.skyjo.domain.Valeur;
 import com.zenika.skyjo.domain.exceptions.PiocheVideException;

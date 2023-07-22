@@ -1,6 +1,6 @@
 package com.zenika.skyjo.interfaces.dto;
 
-import com.zenika.skyjo.domain.Pile;
+import com.zenika.skyjo.domain.pile.Pile;
 
 import java.util.LinkedList;
 import java.util.stream.Collectors;
