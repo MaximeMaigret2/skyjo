@@ -9,7 +9,7 @@ import java.util.List;
 public class PaquetCartes {
 
     @Value("${cartes}")
-    public List<CartesAUtiliser> cartesAUtilisers;
+    public List<CartesAUtiliser> cartesAUtiliser;
 
 
 }

@@ -1,12 +1,11 @@
 package com.zenika.skyjo.domain;
 
-import com.zenika.skyjo.domain.exceptions.CarteEnMainInexistanteEception;
-import com.zenika.skyjo.domain.pile.Pile;
+import com.zenika.skyjo.domain.exceptions.CarteEnMainInexistanteException;
+import com.zenika.skyjo.domain.pile.Distribution;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.stream.IntStream;
 
 public class Plateau {
     public static final int LARGEUR = 4;
@@ -21,19 +20,10 @@ public class Plateau {
         this.joueur = joueur;
     }
 
-    public static Plateau creerPlateauPour(String joueur, Pile pile) {
-        Carte[][] cartes = concevoirTableauDeCartes(pile);
+    public static Plateau creerPlateauPour(String joueur, @NotNull Distribution distribution) {
+
+        Carte[][] cartes = PlateauFactory.concevoirTableauDeCartes(distribution);
         return new Plateau(cartes, joueur);
-    }
-
-
-    private static Carte[][] concevoirTableauDeCartes(Pile pile) {
-        Carte[][] cartes = new Carte[HAUTEUR][LARGEUR];
-        IntStream.range(0, cartes.length).forEach(ligne ->
-                IntStream.range(0, cartes[ligne].length).forEach(colonne ->
-                        cartes[ligne][colonne] = pile.tirerUneCarte())
-        );
-        return cartes;
     }
 
     public Carte[][] getCartes() {
@@ -82,7 +72,7 @@ public class Plateau {
 
     public Carte restituerCarteEnMain() {
         if (Objects.isNull(carteEnMain)) {
-            throw new CarteEnMainInexistanteEception();
+            throw new CarteEnMainInexistanteException();
         }
         Carte carte = carteEnMain;
         // reset carte en main

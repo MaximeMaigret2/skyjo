@@ -3,6 +3,7 @@ package com.zenika.skyjo.common;
 import com.zenika.skyjo.domain.Carte;
 import com.zenika.skyjo.domain.Defausse;
 import com.zenika.skyjo.domain.Manche;
+import com.zenika.skyjo.domain.pile.Distribution;
 import com.zenika.skyjo.domain.pile.Pile;
 import com.zenika.skyjo.domain.Plateau;
 import com.zenika.skyjo.domain.Valeur;
@@ -87,7 +88,7 @@ public class MancheTestBuilder extends Manche.MancheBuilder {
         manche.setDefausse(new Defausse(cartesDefausse));
         manche.setPioche(pile);
 
-        Plateau plateau = Plateau.creerPlateauPour(joueur, pile);
+        Plateau plateau = Plateau.creerPlateauPour(joueur, Distribution.recupererUneDistribution(toutesLesCartes));
         if (Objects.nonNull(carteEnMain)) {
             plateau.prendreUneCarteEnMain(carteEnMain);
         }
