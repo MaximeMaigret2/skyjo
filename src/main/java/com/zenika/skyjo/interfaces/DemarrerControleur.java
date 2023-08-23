@@ -33,7 +33,7 @@ public class DemarrerControleur {
 
     @PostMapping
     public ResponseEntity<MancheDto> demarrerUneNouvellePartie(@Valid @RequestBody ListeDesJoueursDto listeDesJoueursDto) {
-        Manche manche = deroulement.desJoueursPreparerUneManche(listeDesJoueursDto.joueurs());
+        Manche manche = deroulement.desJoueursPreparentUneManche(listeDesJoueursDto.joueurs());
         return ResponseEntity.created(URI.create("/manches/" + manche.getId())).body(MancheDto.fromDomain(manche));
     }
 

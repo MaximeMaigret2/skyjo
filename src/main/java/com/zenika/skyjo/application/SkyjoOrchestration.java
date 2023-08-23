@@ -38,7 +38,7 @@ public class SkyjoOrchestration {
         return mancheRepository.save(manche);
     }
 
-    public Manche desJoueursPreparerUneManche(List<String> joueurs) {
+    public Manche desJoueursPreparentUneManche(List<String> joueurs) {
         Manche manche = skyjoAction.preparerUneManche(joueurs);
         return mancheRepository.save(manche);
     }

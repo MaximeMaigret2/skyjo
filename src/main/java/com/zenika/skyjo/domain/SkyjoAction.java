@@ -1,13 +1,27 @@
 package com.zenika.skyjo.domain;
 
 import com.zenika.skyjo.domain.exceptions.NombreDeJoueursImpossibleException;
+import com.zenika.skyjo.domain.pile.Distribution;
+import com.zenika.skyjo.domain.pile.PaquetCartes;
+import com.zenika.skyjo.domain.pile.Pile;
+import com.zenika.skyjo.domain.pile.PileFactory;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.IntStream;
 
 @Service
 public class SkyjoAction {
+
+    private final PaquetCartes paquetCartes;
+
+    public SkyjoAction(PaquetCartes paquetCartes) {
+        this.paquetCartes = paquetCartes;
+    }
 
     public Manche engagerUnJoueurSurUneManche(Manche manche, String nomJoueur, List<Position> positions) {
         Plateau plateau = manche.recupererLePLateauDuJoueur(nomJoueur);
@@ -20,14 +34,13 @@ public class SkyjoAction {
         positions.forEach(position -> plateau.carteEnPosition(position).retournerFaceVisible());
     }
 
-
     public Manche preparerUneManche(@NotNull List<String> joueurs) {
         if (joueurs.size() < 2 || joueurs.size() > 8) {
             throw new NombreDeJoueursImpossibleException();
         }
         // Mise en place
         // Formez une pioche avec l'ensemble des cartes
-        Pile pile = Pile.construireLaPioche();
+        Pile pile = PileFactory.construireLaPioche(paquetCartes.cartesAUtiliser);
         // Chaque joueur reçoit 12 cartes face cachée
         List<Plateau> plateauxJoueurs = distribuerLesCartesAuxJoueurs(joueurs, pile);
         // Révélez la première carte de la pioche, elle constitue le début de la pile de défausse
@@ -51,8 +64,16 @@ public class SkyjoAction {
     }
 
     private List<Plateau> distribuerLesCartesAuxJoueurs(List<String> joueurs, Pile pile) {
+
+        Map<String, List<Carte>> cartesDistribuees = new HashMap<>();
+        IntStream.range(0, Distribution.TAILLE_DISTRIBUTION).forEach( i ->
+                joueurs.forEach(j -> cartesDistribuees
+                        .computeIfAbsent(j, cartes -> new ArrayList<>())
+                        .add(pile.tirerUneCarte()))
+        );
+
         return joueurs.stream()
-                .map(joueur -> Plateau.creerPlateauPour(joueur, pile))
+                .map(joueur -> Plateau.creerPlateauPour(joueur, Distribution.recupererUneDistribution(cartesDistribuees.get(joueur))))
                 .toList();
     }
 
